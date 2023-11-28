@@ -128,6 +128,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Maleia</placeName>
+					<placeName type="short">mal</placeName>
 					<linkGrp n="17" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="409"/>
 						<ptr xml:lang="grc" type="end-after" target="410"/>
@@ -137,6 +138,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Tainaros</placeName>
+					<placeName type="short">taina</placeName>
 					<linkGrp n="18" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="411"/>
 						<ptr xml:lang="grc" type="end-after" target="421"/>
@@ -146,6 +148,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Arene</placeName>
+					<placeName type="short">aren</placeName>
 					<linkGrp n="19" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
 						<ptr xml:lang="grc" type="start-before" target="411"/>
@@ -156,6 +159,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Argyphea</placeName>
+					<placeName type="short">argyph</placeName>
 					<linkGrp n="19.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
 						<ptr xml:lang="grc" type="start-before" target="411"/>
@@ -166,6 +170,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Thryon</placeName>
+					<placeName type="short">thry</placeName>
 					<linkGrp n="19.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
 						<ptr xml:lang="grc" type="start-before" target="411"/>
@@ -176,6 +181,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Aepy</placeName>
+					<placeName type="short">aepy</placeName>
 					<linkGrp n="19.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
 						<ptr xml:lang="grc" type="start-before" target="411"/>
@@ -186,6 +192,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Paphos</placeName>
+					
 					<placeName type="short">paph</placeName>
 					<linkGrp n="2" corresp="./Perseus-DL/tlg0013/tlg005/tlg0013.tlg005.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="58"/>
@@ -215,6 +222,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Skyros</placeName>
+					<placeName type="short">skyr</placeName>
 					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -225,6 +233,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Phokaia</placeName>
+					<placeName type="short">phokai</placeName>
 					<linkGrp n="3.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -235,6 +244,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Autokane</placeName>
+					<placeName type="short">autokan</placeName>
 					<linkGrp n="3.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -245,6 +255,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Imbros</placeName>
+					<placeName type="short">imbr</placeName>
 					<linkGrp n="3.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -255,6 +266,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Lemnos</placeName>
+					<placeName type="short">lemn</placeName>
 					<linkGrp n="3.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -265,6 +277,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Lesbos</placeName>
+					<placeName type="short">lesb</placeName>
 					<linkGrp n="3.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -275,6 +288,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Makaros</placeName>
+					<placeName type="short">makar</placeName>
 					<linkGrp n="3.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -285,6 +299,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Chios</placeName>
+					<placeName type="short">chi</placeName>
 					<linkGrp n="3.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -295,6 +310,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Mimas</placeName>
+					<placeName type="short">mimas</placeName>
 					<linkGrp n="3.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korykos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -306,6 +322,7 @@
 				<place>
 				
 					<placeName type="primary">Korykos</placeName>
+					<placeName type="short">koryk</placeName>
 					<linkGrp n="3.10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
 						<ptr xml:lang="grc" type="start-before" target="35"/>
@@ -316,6 +333,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Klaros</placeName>
+					<placeName type="short">klar</placeName>
 					<linkGrp n="4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -326,6 +344,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Aisagea</placeName>
+					<placeName type="short">aisag</placeName>
 					<linkGrp n="4.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -336,6 +355,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Samos</placeName>
+					<placeName type="short">sam</placeName>
 					<!-- Non-thracian?-->
 					<linkGrp n="4.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
@@ -347,6 +367,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Mykale</placeName>
+					<placeName type="short">mykal</placeName>
 					<linkGrp n="4.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -357,6 +378,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Miletos</placeName>
+					<placeName type="short">milet</placeName>
 					<linkGrp n="4.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -367,6 +389,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Koos</placeName>
+					<placeName type="short">koos</placeName>
 					<linkGrp n="4.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -377,6 +400,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Knidos</placeName>
+					<placeName type="short">knid</placeName>
 					<linkGrp n="4.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -387,6 +411,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Karpathos</placeName>
+					<placeName type="short">karpath</placeName>
 					<linkGrp n="4.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -398,6 +423,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Naxos</placeName>
+					<placeName type="short">nax</placeName>
 					<linkGrp n="4.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -408,6 +434,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Paros</placeName>
+					<placeName type="short">par</placeName>
 					<linkGrp n="4.10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -418,6 +445,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Rhenaia</placeName>
+					<placeName type="short">rhenai</placeName>
 					<linkGrp n="4.11" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -428,6 +456,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Delos</placeName>
+					<placeName type="short">delos</placeName>
 					<linkGrp n="5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="45"/>
@@ -480,7 +509,7 @@
 					</linkGrp>
 					<placeName type="primary">Maia's Cave</placeName>
 					<placeName type="short">maia</placeName>
-					<placeName type="primary">Mt. Cyllene</placeName>
+					<placeName type="secondary">Mt. Cyllene</placeName>
 					<location>
 						<geo>37.940, 22.397</geo>
 					</location>
@@ -510,6 +539,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Lektos</placeName>
+					<placeName type="short">lekt</placeName>
 					<linkGrp n="8.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
 						<ptr xml:lang="grc" type="start-before" target="216"/>
@@ -520,6 +550,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Enienai</placeName>
+					<placeName type="short">enien</placeName>
 					<linkGrp n="8.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
 						<ptr xml:lang="grc" type="start-before" target="216"/>
@@ -530,6 +561,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Perrhaiboi</placeName>
+					<placeName type="short">perrhai</placeName>
 					<linkGrp n="8.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
 						<ptr xml:lang="grc" type="start-before" target="216"/>
@@ -540,6 +572,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Iolkus</placeName>
+					<placeName type="short">iolk</placeName>
 					<linkGrp n="8.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
 						<ptr xml:lang="grc" type="start-before" target="216"/>
@@ -550,6 +583,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Kenaios</placeName>
+					<placeName type="short">kenai</placeName>
 					<linkGrp n="8.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
 						<ptr xml:lang="grc" type="start-before" target="216"/>
@@ -560,6 +594,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Lelantine Plain</placeName>
+					<placeName type="short">lela</placeName>
 					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
 						<ptr xml:lang="grc" type="start-before" target="220"/>
@@ -570,6 +605,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Euripos</placeName>
+					<placeName type="short">eurip</placeName>
 					<!-- see note in the Apollo linkGrp below-->
 					<linkGrp n="9.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
@@ -581,6 +617,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Mykalessos</placeName>
+					<placeName type="short">mykaless</placeName>
 					<linkGrp n="9.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
 						<ptr xml:lang="grc" type="start-before" target="220"/>
@@ -591,6 +628,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Teumessos</placeName>
+					<placeName type="short">teumess</placeName>
 					<linkGrp n="9.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
 						<ptr xml:lang="grc" type="start-before" target="220"/>
@@ -601,6 +639,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Thebes</placeName>
+					<placeName type="short">thebes</placeName>
 					<linkGrp n="10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
 						<ptr xml:lang="grc" type="start-before" target="225"/>
@@ -639,6 +678,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Kephissos</placeName>
+					<placeName type="short">kephis</placeName>
 					<linkGrp n="12" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -649,6 +689,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Lilaia</placeName>
+					<placeName type="short">lilai</placeName>
 					<linkGrp n="12.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -659,6 +700,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Ocalea</placeName>
+					<placeName type="short">ocal</placeName>
 					<linkGrp n="12.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -669,6 +711,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Haliartos</placeName>
+					<placeName type="short">haliart</placeName>
 					<linkGrp n="12.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -691,6 +734,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Krisa</placeName>
+					<placeName type="short">krisa</placeName>
 					<linkGrp n="14" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="282"/>
 						<ptr xml:lang="grc" type="end-after" target="376"/>
@@ -757,7 +801,8 @@
 					</location>
 				</place>
 				<place>
-					<placeName type="primary">Kpounoi</placeName> <!-- May be Krounoi?-->
+					<placeName type="primary">Krounoi</placeName> <!-- May be Krounoi?-->
+					<placeName type="short">kroun</placeName>
 					<linkGrp n="20" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -768,6 +813,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Khalkis</placeName>
+					<placeName type="short">khalk</placeName>
 					<linkGrp n="20.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -778,6 +824,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Dyme</placeName>
+					<placeName type="short">dyme</placeName>
 					<linkGrp n="20.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -788,6 +835,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Elis</placeName>
+					<placeName type="short">elis</placeName>
 					<linkGrp n="20.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -798,6 +846,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Pherai</placeName>
+					<placeName type="short">pherai</placeName>
 					<!-- Form is Φερὰς -->
 					<linkGrp n="20.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
@@ -809,6 +858,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Ithaka</placeName>
+					<placeName type="short">ithak</placeName>
 					<linkGrp n="20.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -819,6 +869,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Doulikhios</placeName>
+					<placeName type="short">doulikh</placeName>
 					<linkGrp n="20.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -829,6 +880,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Same</placeName>
+					<placeName type="short">same</placeName>
 					<linkGrp n="20.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -839,6 +891,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Zakynthos</placeName>
+					<placeName type="short">zakynth</placeName>
 					<linkGrp n="20.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -910,6 +963,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Helios</placeName>
+					<placeName type="short">hel</placeName>
 					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="62"/>
 						<ptr xml:lang="grc" type="end-after" target="89"/>
@@ -1018,6 +1072,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Peiresiai</placeName>
+					<placeName type="short">peires</placeName>
 					<linkGrp n="2.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
 						<ptr xml:lang="grc" type="start-before" target="30"/>
@@ -1028,6 +1083,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Peparethos</placeName>
+					<placeName type="short">pepareth</placeName>
 					<linkGrp n="2.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
 						<ptr xml:lang="grc" type="start-before" target="30"/>
@@ -1038,6 +1094,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Athoos</placeName>
+					<placeName type="short">athoos</placeName>
 					<!-- Thracian-->
 					<linkGrp n="2.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
@@ -1049,6 +1106,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Pelion</placeName>
+					<placeName type="short">pelion</placeName>
 					<linkGrp n="2.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
 						<ptr xml:lang="grc" type="start-before" target="30"/>
@@ -1059,6 +1117,7 @@
 				</place>
 				<place>
 					<placeName type="primary">Samos</placeName>
+					<placeName type="short">samThrac</placeName>
 					<!-- Thracian-->
 					<linkGrp n="2.10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->

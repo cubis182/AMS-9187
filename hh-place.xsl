@@ -294,11 +294,15 @@
 						// zoom the map to the polyline
 						map.fitBounds(polyline.getBounds());
 						
-						]]><xsl:for-each select="document($placeography)//tei:linkGrp[string(@corresp)=$hh4 and boolean(./../tei:location)]">
-								<xsl:sort select="./@n" data-type="number"/>
-								const marker_<xsl:value-of select="string(@n)"/> = L.marker([<xsl:value-of select="string(./../tei:location/tei:geo)"/>]).addTo(map);
+						]]><xsl:for-each select="document($placeography)//tei:place[count(./tei:linkGrp[string(@corresp)=$hh4]) &gt; 0 and boolean(./tei:location)]">
+								<!--NO longer necessary, I don't sort the big map <xsl:sort select="./@n" data-type="number"/>-->
+								const marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/> = L.marker([<xsl:value-of select="string(./tei:location/tei:geo)"/>]).addTo(map);
 								
-								marker_<xsl:value-of select="string(@n)"/>.bindPopup(&quot;<xsl:value-of select="concat(string(@n), ':&lt;br/&gt;', string(./../tei:placeName[@type='primary']))"/>&quot;);
+								marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/>.bindPopup(&quot;<xsl:value-of select="./tei:placeName[@type='primary']"/>&#58;<br/>
+								<xsl:for-each select="./tei:linkGrp[string(@corresp)=$hh4]">
+									<xsl:sort select="@n" data-type="number"/>
+									<xsl:value-of select="@n"/><br/>
+								</xsl:for-each>&quot;).openPopup();
 								</xsl:for-each><![CDATA[
 					]]>
 				</script>
