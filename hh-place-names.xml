@@ -129,6 +129,9 @@
 				<place>
 					<placeName type="primary">Maleia</placeName>
 					<placeName type="short">mal</placeName>
+					<location>
+						<geo source="570455"></geo>
+					</location>
 					<linkGrp n="17" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="409"/>
 						<ptr xml:lang="grc" type="end-after" target="410"/>
@@ -511,16 +514,16 @@
 					<placeName type="short">maia</placeName>
 					<placeName type="secondary">Mt. Cyllene</placeName>
 					<location>
-						<geo>37.940, 22.397</geo>
+						<geo source="570391">37.940, 22.397</geo>
 					</location>
 				</place>
 				<place>
-					<placeName type="primary">Apollo's Cattle</placeName>
+					<placeName>Apollo's Cattle</placeName>
 					<placeName type="short">cattle</placeName>
 					<placeName type="primary">Pieria</placeName>
 					<!-- Figure out how alternatives work later-->
 					<location>
-						<geo>40.360, 22.487</geo>
+						<geo source="491696">40.360, 22.487</geo>
 					</location>
 					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="70"/>
@@ -653,7 +656,7 @@
 					<placeName type="short">onchestos</placeName>
 					<geogFeat>plain</geogFeat>
 					<location>
-						<geo>38.373, 23.150</geo>
+						<geo source="540984">38.373, 23.150</geo>
 					</location>
 					<linkGrp n="4" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="88"/>
@@ -758,7 +761,7 @@
 						<ptr xml:lang="eng" type="end-after" target="100"/>
 					</linkGrp>
 					<location>
-						<geo>37.515, 21.873</geo>
+						<geo source="570067">37.515, 21.873</geo>
 					</location>
 					<!-- He just reaches the Alpheios-->
 				</place>
@@ -796,8 +799,8 @@
 						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
 					</linkGrp>
 					<location>
-						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location)-->
-						<geo>37.515, 21.873</geo>
+						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location); Manto gives Tryphalian Pylos as the proper one-->
+						<geo source="573490">37.515, 21.873</geo>
 					</location>
 				</place>
 				<place>
@@ -938,7 +941,7 @@
 						<ptr xml:lang="eng" type="end-after" target="110"/>
 					</linkGrp>
 					<location>
-						<geo>40.09, 22.36</geo>
+						<geo source="491677">40.09, 22.36</geo>
 					</location>
 				</place>
 				<place>

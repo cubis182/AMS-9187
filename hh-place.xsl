@@ -212,7 +212,7 @@
 								<xsl:value-of select="$linkgrp/@n"/>
 							</xsl:with-param>
 							<xsl:with-param name="coord">
-								<xsl:value-of select="$linkgrp/../tei:location/tei:geo"/>
+								<xsl:value-of select="string($linkgrp/../tei:location/tei:geo/@source)"/>
 							</xsl:with-param>
 							<xsl:with-param name="total-linkgrps">
 								<xsl:value-of select="count(document('hh-place-names.xml')//tei:linkGrp[string(@corresp) = $hh and substring-before(string(@n), '.') = string($passage-n)]) + 1"/> <!-- Gets the total number of linkgrps associated with this one passage; adds one because this will never identify the first, which has no period, but we nonetheless know exists because we have entered the loop wrapping this template in the first place-->
@@ -248,7 +248,12 @@
 			}I WANTED TO USE THIS TO FORCE THE MAP TO UPDATE, but it didn't work; additionally, using the onmouseover event makes the map hard to use. I may return to
 			this, which is why I'm saving it.-->
 			<![CDATA[
-			const ]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.map(']]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[').setView([]]><xsl:value-of select="string($coord)"/><![CDATA[], 13);
+			const ]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.map(']]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[').setView([]]><xsl:call-template name="retrieve-pleiades">
+				<xsl:with-param name="id" select="$coord"/>
+				<xsl:with-param name="pleiades1">
+					
+				</xsl:with-param>
+			</xsl:call-template><![CDATA[], 13);
 
 			const ]]><xsl:value-of select="concat('tiles', string($passage))"/><![CDATA[ = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -309,6 +314,55 @@
 			 </xsl:element>
 	</xsl:template>
 	
+	<xsl:template name="retrieve-pleiades">
+		<xsl:param name="id"/> <!-- id from @source of the geo element of the chosen place-->
+		<xsl:param name="pleiades1"/>
+		<xsl:param name="pleiades2"/>
+		
+		<!-- Get both files, since they were split into two for conversion to xml-->
+		<!--These will have to be provided with the params
+		<xsl:variable name="pleiades1" select="document('pleiades-xml1.xml')//item[@type='object']"/>
+		<xsl:variable name="pleiades2" select="document('pleiades-xml2.xml')//item[@type='object']"/>-->
+		
+		<xsl:choose>
+			
+			
+			<xsl:when test="boolean($pleiades1[boolean(./pair[text() = string($id)])])">
+				<xsl:call-template name="choose-points">
+					<xsl:with-param name="geometry" select="$pleiades1[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry']"/>
+				</xsl:call-template>				
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:call-template name="choose-points">
+					<xsl:with-param name="geometry" select="$pleiades2[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry']"/>
+				</xsl:call-template>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 	
+	<xsl:template name="choose-points">
+		<!--This selects which template to use depending on whether the geometry is a Point, LineString, MultiLineString, Polygon or MultiPolygon (I checked the data to make sure this is it)-->
+		<xsl:param name="geometry"/>
+		
+		<xsl:if test="count($geometry//pair[@name='coordinates']/*) > 0">
+			<!--If it is a Point...-->
+			<xsl:if test="$geometry/pair[@name='type']/text() = 'Point'">
+				<xsl:call-template name="point-template">
+					<xsl:with-param name="array" select="$geometry/pair[@name='coordinates']"/>
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template name="point-template">
+		<!--Used if the given coordinates are a single point-->
+		<xsl:param name="array"/><!-- The array containing the coordinates-->
+		
+		<xsl:value-of select="string-join($array/*/text(), ', ')"/>
+	</xsl:template>
+	
+	<xsl:template name="MultiLineString-template">
+	
+	</xsl:template>
 	
 </xsl:stylesheet>
