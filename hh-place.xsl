@@ -77,6 +77,7 @@
 					background-color: red;
 				}
 				
+				
 				div[type="map-container"]>b:hover+div[type="map"] {
 					visibility: visible;
 					z-index: 2;
@@ -86,10 +87,11 @@
 					visibility: hidden;
 					background-color: red;
 				}
+				
 				div[type="map"]:hover {
 					visibility: visible;
 				}
-				div[type="map"]:hover]
+				
 				.leaflet-container {
 					height: 400px;
 					width: 600px;
@@ -119,7 +121,7 @@
 			<!-- Get the URL for the map-->
 			
 				<xsl:call-template name="passage-builder">
-					<xsl:with-param name="passage-n" select="./@n" data-type="number"/>
+					<xsl:with-param name="passage-n" select="./@n"/>
 					<xsl:with-param name="linkgrp" select="."/>
 					<xsl:with-param name="hh">
 						<xsl:value-of select="$hh4"/>
@@ -133,7 +135,6 @@
 				<xsl:variable name="start" select="./tei:ptr[@type='start-before' and @xml:lang=document($hh4)//tei:text/@xml:lang]/@target"/>
 				<xsl:for-each select=
 				"document($hh4)//tei:l[@n &lt; $end and @n &gt; $start or @n=$start or @n=$end]">
-					
 					<xsl:value-of select="./@n"/>: <xsl:copy><xsl:apply-templates select="text()"/><p style="display: none;"><xsl:copy><xsl:apply-templates select="./node()"/></xsl:copy></p></xsl:copy><br/> <!-- I still have a lot to learn; node() seems to get text data? Either way, this preserves the notes without displaying them, I think-->
 				</xsl:for-each>
 				</div>
@@ -198,7 +199,7 @@
 			
 		</h2>
 		<!-- The map container is one div, below, separate from the passage div with the text-->
-		<div type="map-container" style="position:absolute">
+		<div type="map-container" style="">
 			<b>-&gt;Hover over me&lt;- </b>
 			<div type="map">
 				<xsl:choose>
@@ -217,6 +218,7 @@
 							<xsl:with-param name="total-linkgrps">
 								<xsl:value-of select="count(document('hh-place-names.xml')//tei:linkGrp[string(@corresp) = $hh and substring-before(string(@n), '.') = string($passage-n)]) + 1"/> <!-- Gets the total number of linkgrps associated with this one passage; adds one because this will never identify the first, which has no period, but we nonetheless know exists because we have entered the loop wrapping this template in the first place-->
 							</xsl:with-param>
+							<xsl:with-param name="linkgrp" select="$linkgrp"/>
 						</xsl:call-template>
 					</xsl:when>
 					<xsl:otherwise>
@@ -234,6 +236,8 @@
 		<xsl:param name="passage"/> <!-- The number of the passage in the work, given from @n in the linkGrp-->
 		<xsl:param name="coord"/>
 		<xsl:param name="total-linkgrps"/>
+		<xsl:param name="linkgrp"/>
+		<xsl:param name="map-name"/>
 		
 		
 		<xsl:element name="div">
@@ -248,22 +252,40 @@
 			}I WANTED TO USE THIS TO FORCE THE MAP TO UPDATE, but it didn't work; additionally, using the onmouseover event makes the map hard to use. I may return to
 			this, which is why I'm saving it.-->
 			<![CDATA[
-			const ]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.map(']]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[').setView([]]><xsl:call-template name="retrieve-pleiades">
-				<xsl:with-param name="id" select="$coord"/>
-				<xsl:with-param name="pleiades1">
-					
-				</xsl:with-param>
-			</xsl:call-template><![CDATA[], 13);
+			const ]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.map(']]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[').setView([]]>
+			<xsl:choose>
+				<xsl:when test="count(document('hh-pleiades-data.xml')//item[@type='object' and boolean(./pair[text() = $coord])]/pair[@name='features']/*) &gt; 0">
+					<xsl:call-template name="choose-points">
+						<xsl:with-param name="geometry" select="document('hh-pleiades-data.xml')/json/*[boolean(./pair[text() = string($coord)])]/pair[@name='features']/item/pair[@name='geometry']"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise>
+					37.3920222,25.2702389
+				</xsl:otherwise>
+			</xsl:choose>
+			<![CDATA[], 13);
 
 			const ]]><xsl:value-of select="concat('tiles', string($passage))"/><![CDATA[ = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
 				trackResize: true,
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-			}).addTo(]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[);
-			
-			const marker_]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.marker([]]><xsl:value-of select="string($coord)"/><![CDATA[]).addTo(]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[)
-			
-			]]>
+			}).addTo(]]><xsl:value-of select="concat(string($placename), string($passage))"/>);
+			<xsl:call-template name="retrieve-pleiades">
+					<xsl:with-param name="id" select="$coord"/>
+					<xsl:with-param name="pleiades" select="document('hh-pleiades-data.xml')//item[@type='object']"/>
+					<xsl:with-param name="passage" select="$passage"/>
+					<xsl:with-param name="placename" select="$placename"/>
+					<xsl:with-param name="map-name" select="concat(string($placename), string($passage))"/>
+			</xsl:call-template>
+			<xsl:for-each select="$linkgrp/../../tei:place/tei:linkGrp[@corresp=$linkgrp/@corresp and contains(string(@n), '.') and string($linkgrp/@n) = substring-before(string(@n), '.')]">
+				<xsl:call-template name="retrieve-pleiades">
+					<xsl:with-param name="id" select="./../tei:location/tei:geo/@source"/>
+					<xsl:with-param name="pleiades" select="document('hh-pleiades-data.xml')//item[@type='object']"/>
+					<xsl:with-param name="passage" select="substring-after(string(@n), '.')"/>
+					<xsl:with-param name="placename" select="./../tei:placeName[@type='short']/text()"/>
+					<xsl:with-param name="map-name" select="concat(string($placename), string($passage))"/>
+				</xsl:call-template>
+			</xsl:for-each>
 		</script>
 		
 		</xsl:element>
@@ -316,53 +338,121 @@
 	
 	<xsl:template name="retrieve-pleiades">
 		<xsl:param name="id"/> <!-- id from @source of the geo element of the chosen place-->
-		<xsl:param name="pleiades1"/>
-		<xsl:param name="pleiades2"/>
+		<xsl:param name="pleiades"/>
+		<xsl:param name="passage"/>
+		<xsl:param name="placename"/>
+		<xsl:param name="map-name"/>
 		
 		<!-- Get both files, since they were split into two for conversion to xml-->
 		<!--These will have to be provided with the params
 		<xsl:variable name="pleiades1" select="document('pleiades-xml1.xml')//item[@type='object']"/>
 		<xsl:variable name="pleiades2" select="document('pleiades-xml2.xml')//item[@type='object']"/>-->
-		
-		<xsl:choose>
-			
-			
-			<xsl:when test="boolean($pleiades1[boolean(./pair[text() = string($id)])])">
-				<xsl:call-template name="choose-points">
-					<xsl:with-param name="geometry" select="$pleiades1[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry']"/>
-				</xsl:call-template>				
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:call-template name="choose-points">
-					<xsl:with-param name="geometry" select="$pleiades2[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry']"/>
-				</xsl:call-template>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
+		const marker_<xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.marker([]]>
+		<xsl:call-template name="choose-points">
+			<xsl:with-param name="geometry" select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry']"/>
+		</xsl:call-template><![CDATA[]).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>				
+	</xsl:template>		
 	
 	<xsl:template name="choose-points">
 		<!--This selects which template to use depending on whether the geometry is a Point, LineString, MultiLineString, Polygon or MultiPolygon (I checked the data to make sure this is it)-->
 		<xsl:param name="geometry"/>
 		
-		<xsl:if test="count($geometry//pair[@name='coordinates']/*) > 0">
-			<!--If it is a Point...-->
-			<xsl:if test="$geometry/pair[@name='type']/text() = 'Point'">
-				<xsl:call-template name="point-template">
-					<xsl:with-param name="array" select="$geometry/pair[@name='coordinates']"/>
-				</xsl:call-template>
-			</xsl:if>
-		</xsl:if>
+		<xsl:choose>
+			<xsl:when test="count($geometry//pair[@name='coordinates']/*) &gt; 0">
+				<xsl:choose>
+				<!--If it is a Point...-->
+				<xsl:when test="$geometry/pair[@name='type']/text() = 'Point'">
+					<xsl:call-template name="point-template">
+						<xsl:with-param name="array" select="$geometry/pair[@name='coordinates']"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:call-template name="placeholder-coord">
+						<xsl:with-param name="array" select="$geometry/../../../pair[@name='reprPoint']"/>
+					</xsl:call-template>
+						
+				</xsl:otherwise>
+				</xsl:choose>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>0,0</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template name="point-template">
 		<!--Used if the given coordinates are a single point-->
 		<xsl:param name="array"/><!-- The array containing the coordinates-->
-		
-		<xsl:value-of select="string-join($array/*/text(), ', ')"/>
+		<xsl:value-of select="concat($array/*[2]/text(), ', ',$array/*[1]/text())"/>
+			
 	</xsl:template>
 	
+	<xsl:template name="placeholder-coord">
+		<xsl:param name="array"/>
+		<!--Since I have not figured out every shape yet, we can get the representative point if we need to-->
+		<xsl:value-of select="concat($array/item[2]/text(), ',', $array/item[1]/text())"/>
+	</xsl:template>
+	
+	<!--
 	<xsl:template name="MultiLineString-template">
 	
-	</xsl:template>
+	</xsl:template>-->
 	
-</xsl:stylesheet>
+</xsl:stylesheet><!-- Stylus Studio meta-information - (c) 2004-2009. Progress Software Corporation. All rights reserved.
+
+<metaInformation>
+	<scenarios>
+		<scenario default="no" name="Scenario1" userelativepaths="yes" externalpreview="no" url="hh4-map-edition.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
+		          commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+			<advancedProp name="bSchemaAware" value="true"/>
+			<advancedProp name="xsltVersion" value="2.0"/>
+			<advancedProp name="schemaCache" value="||"/>
+			<advancedProp name="iWhitespace" value="0"/>
+			<advancedProp name="bWarnings" value="true"/>
+			<advancedProp name="bXml11" value="false"/>
+			<advancedProp name="bUseDTD" value="false"/>
+			<advancedProp name="bXsltOneIsOkay" value="true"/>
+			<advancedProp name="bTinyTree" value="true"/>
+			<advancedProp name="bGenerateByteCode" value="true"/>
+			<advancedProp name="bExtensions" value="true"/>
+			<advancedProp name="iValidation" value="0"/>
+			<advancedProp name="iErrorHandling" value="fatal"/>
+			<advancedProp name="sInitialTemplate" value=""/>
+			<advancedProp name="sInitialMode" value=""/>
+		</scenario>
+		<scenario default="yes" name="Scenario2" userelativepaths="yes" externalpreview="no" url="hh3-map-edition.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
+		          commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
+			<advancedProp name="bSchemaAware" value="true"/>
+			<advancedProp name="xsltVersion" value="2.0"/>
+			<advancedProp name="schemaCache" value="||"/>
+			<advancedProp name="iWhitespace" value="0"/>
+			<advancedProp name="bWarnings" value="true"/>
+			<advancedProp name="bXml11" value="false"/>
+			<advancedProp name="bUseDTD" value="false"/>
+			<advancedProp name="bXsltOneIsOkay" value="true"/>
+			<advancedProp name="bTinyTree" value="true"/>
+			<advancedProp name="bGenerateByteCode" value="true"/>
+			<advancedProp name="bExtensions" value="true"/>
+			<advancedProp name="iValidation" value="0"/>
+			<advancedProp name="iErrorHandling" value="fatal"/>
+			<advancedProp name="sInitialTemplate" value=""/>
+			<advancedProp name="sInitialMode" value=""/>
+		</scenario>
+	</scenarios>
+	<MapperMetaTag>
+		<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no">
+			<SourceSchema srcSchemaPath="hh3-map-edition.xml" srcSchemaRoot="html" AssociatedInstance="" loaderFunction="document" loaderFunctionUsesURI="no"/>
+			<SourceSchema srcSchemaPath="hh-place-names.xml" srcSchemaRoot="TEI" AssociatedInstance="file:///c:/Users/matth/Documents/GitHub/AMS-9187/hh-place-names.xml" loaderFunction="document" loaderFunctionUsesURI="no"/>
+		</MapperInfo>
+		<MapperBlockPosition>
+			<template match="/">
+				<block path="xsl:call-template" x="384" y="0"/>
+				<block path="xsl:call-template/string[0]" x="338" y="0"/>
+			</template>
+			<template name="retrieve-pleiades"></template>
+		</MapperBlockPosition>
+		<TemplateContext></TemplateContext>
+		<MapperFilter side="source"></MapperFilter>
+	</MapperMetaTag>
+</metaInformation>
+-->
