@@ -77,19 +77,18 @@
 					background-color: red;
 				}
 				
-				
+				<!--
 				div[type="map-container"]>b:hover+div[type="map"] {
 					visibility: visible;
 					z-index: 2;
-				}
+				}-->
 				
 				div[type="map"] {
-					visibility: hidden;
-					background-color: red;
+					<!--visibility: hidden;-->
 				}
 				
 				div[type="map"]:hover {
-					visibility: visible;
+					<!--visibility: visible;-->
 				}
 				
 				.leaflet-container {
@@ -106,6 +105,8 @@
 			
 			<h1><xsl:value-of select="document($hh4)//tei:div[1]/tei:head"/></h1><br/>
 		</header>
+		
+		<a href="hh-main-menu.html">Home</a><br/>
 		
 		<!-- Add the link to the translation-->
 		<xsl:call-template name="swap-lang">
@@ -263,7 +264,7 @@
 					37.3920222,25.2702389
 				</xsl:otherwise>
 			</xsl:choose>
-			<![CDATA[], 13);
+			<![CDATA[], 8);
 
 			const ]]><xsl:value-of select="concat('tiles', string($passage))"/><![CDATA[ = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
