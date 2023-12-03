@@ -271,8 +271,10 @@
 				trackResize: true,
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(]]><xsl:value-of select="concat(string($placename), string($passage))"/>);
+			<!--Now add the markers-->
 			<xsl:call-template name="retrieve-pleiades">
 					<xsl:with-param name="id" select="$coord"/>
+					<xsl:with-param name="linkgrp" select="$linkgrp"/>
 					<xsl:with-param name="pleiades" select="document('hh-pleiades-data.xml')//item[@type='object']"/>
 					<xsl:with-param name="passage" select="$passage"/>
 					<xsl:with-param name="placename" select="$placename"/>
@@ -281,6 +283,7 @@
 			<xsl:for-each select="$linkgrp/../../tei:place/tei:linkGrp[@corresp=$linkgrp/@corresp and contains(string(@n), '.') and string($linkgrp/@n) = substring-before(string(@n), '.')]">
 				<xsl:call-template name="retrieve-pleiades">
 					<xsl:with-param name="id" select="./../tei:location/tei:geo/@source"/>
+					<xsl:with-param name="linkgrp" select="."/>
 					<xsl:with-param name="pleiades" select="document('hh-pleiades-data.xml')//item[@type='object']"/>
 					<xsl:with-param name="passage" select="substring-after(string(@n), '.')"/>
 					<xsl:with-param name="placename" select="./../tei:placeName[@type='short']/text()"/>
@@ -343,6 +346,7 @@
 		<xsl:param name="passage"/>
 		<xsl:param name="placename"/>
 		<xsl:param name="map-name"/>
+		<xsl:param name="linkgrp"/>
 		
 		<!-- Get both files, since they were split into two for conversion to xml-->
 		<!--These will have to be provided with the params
@@ -350,8 +354,11 @@
 		<xsl:variable name="pleiades2" select="document('pleiades-xml2.xml')//item[@type='object']"/>-->
 		const marker_<xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.marker([]]>
 		<xsl:call-template name="choose-points">
-			<xsl:with-param name="geometry" select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry']"/>
-		</xsl:call-template><![CDATA[]).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>				
+			<xsl:with-param name="geometry" select="($pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry'])[1]"/> <!-- Cheated a little here: this is where we pull the geographic data, but if it is attested in multiple sources, the map breaks. Currently, this picks the first set of coordinate data in "features" and sticks with that.-->
+		</xsl:call-template><![CDATA[]).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>
+		
+		<!--The following binds a popup to the marker which has the Pleiades URL (the one ending in pair[@name='link']/text()) and the other the description of the source (the one ending in pair[@name='description']/text()). It also adds a description from the hh-place-names.xml document, if one is available-->
+		marker_<xsl:value-of select="concat(string($placename), string($passage))"/>.bindPopup(&quot;<xsl:value-of select="./../tei:placeName[@type='primary']/text()"/>:<br/><![CDATA[<a href=\"]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='link']/text()"/><![CDATA[\">]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='description']/text()"/><![CDATA[</a>]]><br/><xsl:value-of select="$linkgrp/../tei:desc/text()"/><br/>&quot;)
 	</xsl:template>		
 	
 	<xsl:template name="choose-points">
