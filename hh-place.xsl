@@ -69,26 +69,30 @@
 					background-color: yellow;
 				}-->
 				
-				div[type="map-container"]>b {
+				.reveal {
 					background-color: yellow;
+					text-align: center;
 				}
 				
-				div[type="map-container"]>b:hover {
+				.column:hover>div>div[type="map"]{
+					visibility: visible;
+					z-index: 2;
+				}
+				
+				.column:nth-child(3):hover{
 					background-color: red;
 				}
 				
-				<!--
-				div[type="map-container"]>b:hover+div[type="map"] {
-					visibility: visible;
-					z-index: 2;
-				}-->
+				.column:nth-child(3):hover>.reveal{
+					background-color: red;
+				}
 				
 				div[type="map"] {
-					<!--visibility: hidden;-->
+					visibility: hidden;
 				}
 				
 				div[type="map"]:hover {
-					<!--visibility: visible;-->
+					visibility: visible;
 				}
 				
 				.leaflet-container {
@@ -96,6 +100,28 @@
 					width: 600px;
 					max-width: 100%;
 					max-height: 100%;
+				}
+				
+				
+				.column {
+					float: left;
+					width: 50%;
+				}
+				
+				.row {
+					display: block;
+				}
+				
+				.filler {
+					height: 20px;
+					width: 50px;
+					color: black;
+				}			
+				
+				.row:after {
+				  content: "";
+				  display: table;
+				  clear: both;
 				}
 			</style>
 				
@@ -115,12 +141,39 @@
 		</xsl:call-template>
 		
 		<div>
+			
 			<!-- The reason why this loop skips ones with a '.' in them is because only on the second or above location in a single passage do we add a .2, .3 etc.; the first of each has no '.' so we can do this loop successfully, although there are probably better ways to do this-->
 			<xsl:for-each select="document($placeography)//tei:place/tei:linkGrp[substring(string(@corresp), 1, 42)=substring($hh4, 1, 42) and contains(string(./@n), '.') = false()]"> <!-- We check for the substring because the file types obviously will not be equivalent between the two, but the part of the path which includes the URN will be-->
 			<xsl:sort select="./@n" data-type="number"/> <!--DUDE, YOU CAN CHANGE THE DATA-TYPE? This makes sure the parts of the story come in the right order, no matter how they are in the placeography -->
-			<div>
-			<!-- Get the URL for the map-->
+			<div class="row">
+			<h2>
+			<xsl:choose>
+				<xsl:when test="./../tei:placeName='empty'">
+					No map data for this section
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="./../tei:placeName[@type='primary']"/><!-- The substring goes until the end of the tlg value, that is it cuts of .perseus-grc2.xml-->
+						
+				</xsl:otherwise>
+			</xsl:choose>
 			
+			</h2>
+			<!-- Get the URL for the map-->
+				
+				<div class="column" type="passage" style="z-index:1">
+				<!-- Figure out what range of text to retrieve. Keep in mind that we need to check the language for proper alignment.-->
+				<xsl:variable name="end" select="./tei:ptr[@type='end-after' and @xml:lang=document($hh4)//tei:text/@xml:lang]/@target"/>
+				<xsl:variable name="start" select="./tei:ptr[@type='start-before' and @xml:lang=document($hh4)//tei:text/@xml:lang]/@target"/>
+				<xsl:for-each select=
+				"document($hh4)//tei:l[@n &lt; $end and @n &gt; $start or @n=$start or @n=$end]">
+					<xsl:value-of select="./@n"/>: <xsl:copy><xsl:apply-templates select="text()"/><p style="display: none;"><xsl:copy><xsl:apply-templates select="./node()"/></xsl:copy></p></xsl:copy><br/> <!-- I still have a lot to learn; node() seems to get text data? Either way, this preserves the notes without displaying them, I think-->
+				</xsl:for-each>
+				</div>
+				
+				<div class="column">
+				<div class="reveal">
+					<b>-&gt;Hover over me&lt;- </b>
+				</div>
 				<xsl:call-template name="passage-builder">
 					<xsl:with-param name="passage-n" select="./@n"/>
 					<xsl:with-param name="linkgrp" select="."/>
@@ -130,19 +183,14 @@
 					
 				</xsl:call-template>
 				
-				<div type="passage" style="z-index:1">
-				<!-- Figure out what range of text to retrieve. Keep in mind that we need to check the language for proper alignment.-->
-				<xsl:variable name="end" select="./tei:ptr[@type='end-after' and @xml:lang=document($hh4)//tei:text/@xml:lang]/@target"/>
-				<xsl:variable name="start" select="./tei:ptr[@type='start-before' and @xml:lang=document($hh4)//tei:text/@xml:lang]/@target"/>
-				<xsl:for-each select=
-				"document($hh4)//tei:l[@n &lt; $end and @n &gt; $start or @n=$start or @n=$end]">
-					<xsl:value-of select="./@n"/>: <xsl:copy><xsl:apply-templates select="text()"/><p style="display: none;"><xsl:copy><xsl:apply-templates select="./node()"/></xsl:copy></p></xsl:copy><br/> <!-- I still have a lot to learn; node() seems to get text data? Either way, this preserves the notes without displaying them, I think-->
-				</xsl:for-each>
 				</div>
-				<!-- Now, get the map information-->
-			<p>----------------------------------------------------------------</p>
 			</div>
+			<div class="filler">
+			
+			</div>
+			
 		</xsl:for-each>
+		
 			<p>
 				<xsl:value-of select="document($hh4)//tei:l[$place]"/>
 			</p>
@@ -187,21 +235,10 @@
 		<xsl:param name="hh"/>
 		
 		<!-- Get the header info, which should be the location but leaves a message if it is empty-->
-		<h2>
-			<xsl:choose>
-				<xsl:when test="$linkgrp/../tei:placeName='empty'">
-					No map data for this section
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="$linkgrp/../../tei:place/tei:linkGrp[(substring-before(string(@n), '.') = string($passage-n) or string(@n) = string($linkgrp/@n)) and substring(string(@corresp), 1, 42)=substring(string($linkgrp/@corresp), 1, 42)]/../tei:placeName[@type='primary']"/><!-- The substring goes until the end of the tlg value, that is it cuts of .perseus-grc2.xml-->
-						
-				</xsl:otherwise>
-			</xsl:choose>
-			
-		</h2>
+		
 		<!-- The map container is one div, below, separate from the passage div with the text-->
-		<div type="map-container" style="">
-			<b>-&gt;Hover over me&lt;- </b>
+		<div type="map-container">
+			
 			<div type="map">
 				<xsl:choose>
 					<xsl:when test="boolean($linkgrp/../tei:location)">
@@ -316,7 +353,11 @@
 						const latlngs = [
 							]]><xsl:for-each select="document($placeography)//tei:linkGrp[string(@corresp)=$hh4 and boolean(./../tei:location)]">
 								<xsl:sort select="./@n" data-type="number"/>
-								<xsl:value-of select="concat('[', string(./../tei:location/tei:geo), ']')"/><xsl:if test="number(./@n) &lt; number($length)">,</xsl:if> <!-- YOU CHEATED HERE! FIX THIS LATER, OR ADD A # OF LOCATIONS FIELD-->
+								[<xsl:call-template name="full-map-point">
+									<xsl:with-param name="place">
+										<xsl:value-of select="document('hh-pleiades-data.xml')//item[@type='object' and boolean(./pair[@name='id']/text() = string(./tei:geo/@source))]"/>
+									</xsl:with-param>
+								</xsl:call-template>]<xsl:if test="number(./@n) &lt; number($length)">,</xsl:if> <!-- YOU CHEATED HERE! FIX THIS LATER, OR ADD A # OF LOCATIONS FIELD-->
 							</xsl:for-each> <![CDATA[
 						];
 
@@ -399,6 +440,12 @@
 		<xsl:param name="array"/>
 		<!--Since I have not figured out every shape yet, we can get the representative point if we need to-->
 		<xsl:value-of select="concat($array/item[2]/text(), ',', $array/item[1]/text())"/>
+	</xsl:template>
+	
+	<xsl:template name="full-map-point">
+		<xsl:param name="place"/>
+		
+		<xsl:value-of select="concat($place/pair[@name='reprPoint']/item[2]/text(), ',', $place/pair[@name='reprPoint']/item[1]/text())"/>
 	</xsl:template>
 	
 	<!--
