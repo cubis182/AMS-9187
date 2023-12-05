@@ -372,11 +372,15 @@
 								
 								marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/>.bindPopup(&quot;<xsl:value-of select="./tei:placeName[@type='primary']"/>&#58;<br/>
 								<xsl:for-each select="./tei:linkGrp[substring(string(@corresp), 1, 42)=substring($hh4, 1, 42)]">
-									<xsl:text>Lines: </xsl:text>
 									<xsl:sort select="@n" data-type="number"/>
+									<xsl:text>Lines: </xsl:text>									
 									<xsl:value-of select="string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target)"/>
-									<xsl:text>-</xsl:text>	
-									<xsl:value-of select="number(string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target)) - 1"/>
+									
+									<!--It is awkward to have something like 'Lines 101-101', so this checks to avoid that-->
+									<xsl:if test="number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target) - number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target) gt 1">
+										<xsl:text>-</xsl:text>	
+										<xsl:value-of select="number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target) - 1"/>
+									</xsl:if>
 									<!--@xml:lang=document($hh4)//tei:div[1]/@xml:lang--><br/>
 								</xsl:for-each>&quot;).openPopup();
 								</xsl:for-each><![CDATA[
@@ -469,7 +473,7 @@
 
 <metaInformation>
 	<scenarios>
-		<scenario default="no" name="Scenario1" userelativepaths="yes" externalpreview="no" url="hh4-map-edition.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
+		<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="hh4-map-edition.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
 		          commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<advancedProp name="bSchemaAware" value="true"/>
 			<advancedProp name="xsltVersion" value="2.0"/>
@@ -487,7 +491,7 @@
 			<advancedProp name="sInitialTemplate" value=""/>
 			<advancedProp name="sInitialMode" value=""/>
 		</scenario>
-		<scenario default="yes" name="Scenario2" userelativepaths="yes" externalpreview="no" url="hh3-map-edition.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
+		<scenario default="no" name="Scenario2" userelativepaths="yes" externalpreview="no" url="hh3-map-edition.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml=""
 		          commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator="">
 			<advancedProp name="bSchemaAware" value="true"/>
 			<advancedProp name="xsltVersion" value="2.0"/>
