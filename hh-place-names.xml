@@ -395,6 +395,7 @@
 						<ptr xml:lang="eng" type="start-before" target="40"/>
 						<ptr xml:lang="eng" type="end-after" target="40"/>
 					</linkGrp>
+					<desc>Location unknown, resorting to default</desc>
 				</place>
 				<place>
 					<placeName type="primary">Samos</placeName>
@@ -458,9 +459,10 @@
 					<placeName type="primary">Knidos</placeName>
 					<placeName type="short">knid</placeName>
 					<location>
-						<!--MANTO claims this to be the Cnidos on Cyprus, not the Cnidos on the coast of Anatolia-->
-						<geo source="707539"></geo>
+						<!--MANTO claims this to be the Cnidos on Cyprus, not the Cnidos on the coast of Anatolia; I do not agree with that, so I am going with the other one-->
+						<geo source="599576"></geo>
 					</location>
+					<desc>MANTO claims this to be the Knidos on Cyprus, not the Knidos on the coast of Anatolia; since that is rather far away from where most of the other locations are, I am defaulting to the more famous Knidos on the Anatolian coast.</desc>
 					<linkGrp n="4.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
 						<ptr xml:lang="grc" type="start-before" target="40"/>
@@ -912,15 +914,15 @@
 						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
 					</linkGrp>
 					<location>
-						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location); Manto gives Tryphalian Pylos as the proper one-->
-						<geo source="573490">37.515, 21.873</geo>
+						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location); Manto gives Tryphalian Pylos as the proper one
+						<geo source="573490">37.515, 21.873</geo>-->
 					</location>
 				</place>
 				<place>
 					<placeName type="primary">Krounoi</placeName> <!-- May be Krounoi?-->
 					<placeName type="short">kroun</placeName>
 					<location>
-						<geo source="573314"></geo>
+						<!--<geo source="573314"></geo>-->
 					</location>
 					<linkGrp n="20" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
@@ -1068,6 +1070,8 @@
 					<linkGrp n="1" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="1"/>
 						<ptr xml:lang="grc" type="end-after" target="29"/>
+						<ptr xml:lang="eng" type="start-before" target="1"/>
+						<ptr xml:lang="eng" type="end-after" target="25"/>
 					</linkGrp>
 					<linkGrp n="6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="108"/>

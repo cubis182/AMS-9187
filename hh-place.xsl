@@ -166,7 +166,7 @@
 				<xsl:variable name="start" select="./tei:ptr[@type='start-before' and @xml:lang=document($hh4)//tei:text/@xml:lang]/@target"/>
 				<xsl:for-each select=
 				"document($hh4)//tei:l[@n &lt; $end and @n &gt; $start or @n=$start or @n=$end]">
-					<xsl:value-of select="./@n"/>: <xsl:copy><xsl:apply-templates select="text()"/><p style="display: none;"><xsl:copy><xsl:apply-templates select="./node()"/></xsl:copy></p></xsl:copy><br/> <!-- I still have a lot to learn; node() seems to get text data? Either way, this preserves the notes without displaying them, I think-->
+					<xsl:value-of select="./@n"/>: <xsl:copy><xsl:apply-templates select="./node()[boolean(@anchored) = false()]"/><p style="display: none;"><xsl:copy><xsl:apply-templates select="./node()"/></xsl:copy></p></xsl:copy><br/> <!-- I still have a lot to learn; node() seems to get text data? Either way, this preserves the notes without displaying them, I think-->
 				</xsl:for-each>
 				</div>
 				
@@ -294,7 +294,7 @@
 			<xsl:choose>
 				<xsl:when test="count(document('hh-pleiades-data.xml')//item[@type='object' and boolean(./pair[text() = $coord])]/pair[@name='features']/*) &gt; 0">
 					<xsl:call-template name="choose-points">
-						<xsl:with-param name="geometry" select="document('hh-pleiades-data.xml')/json/*[boolean(./pair[text() = string($coord)])]/pair[@name='features']/item/pair[@name='geometry']"/>
+						<xsl:with-param name="geometry" select="document('hh-pleiades-data.xml')/json/*[boolean(./pair[text() = string($coord)])]"/>
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:otherwise>
@@ -351,13 +351,13 @@
 						}).addTo(map);
 						// create a red polyline from an array of LatLng points
 						const latlngs = [
-							]]><xsl:for-each select="document($placeography)//tei:linkGrp[string(@corresp)=$hh4 and boolean(./../tei:location)]">
-								<xsl:sort select="./@n" data-type="number"/>
-								[<xsl:call-template name="full-map-point">
-									<xsl:with-param name="place">
-										<xsl:value-of select="document('hh-pleiades-data.xml')//item[@type='object' and boolean(./pair[@name='id']/text() = string(./tei:geo/@source))]"/>
-									</xsl:with-param>
-								</xsl:call-template>]<xsl:if test="number(./@n) &lt; number($length)">,</xsl:if> <!-- YOU CHEATED HERE! FIX THIS LATER, OR ADD A # OF LOCATIONS FIELD-->
+							]]><xsl:for-each select="document($placeography)//tei:place[substring(string(./tei:linkGrp/@corresp), 1, 42)=substring($hh4, 1, 42) and boolean(./tei:location/tei:geo/@source)]">
+								
+									
+									[<xsl:call-template name="full-map-point">
+										<xsl:with-param name="geo" select="string(./tei:location/tei:geo/@source)"/>
+									</xsl:call-template>]<xsl:if test="position() &lt; count(document($placeography)//tei:place[substring(string(./tei:linkGrp/@corresp), 1, 42)=substring($hh4, 1, 42) and boolean(./tei:location/tei:geo/@source)])">,</xsl:if><!-- YOU CHEATED HERE! FIX THIS LATER, OR ADD A # OF LOCATIONS FIELD-->
+								
 							</xsl:for-each> <![CDATA[
 						];
 
@@ -366,14 +366,18 @@
 						// zoom the map to the polyline
 						map.fitBounds(polyline.getBounds());
 						
-						]]><xsl:for-each select="document($placeography)//tei:place[count(./tei:linkGrp[string(@corresp)=$hh4]) &gt; 0 and boolean(./tei:location)]">
+						]]><xsl:for-each select="document($placeography)//tei:place[count(./tei:linkGrp[substring(string(@corresp), 1, 42)=substring($hh4, 1, 42)]) &gt; 0 and boolean(./tei:location/tei:geo/@source)]">
 								<!--NO longer necessary, I don't sort the big map <xsl:sort select="./@n" data-type="number"/>-->
-								const marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/> = L.marker([<xsl:value-of select="string(./tei:location/tei:geo)"/>]).addTo(map);
+								const marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/> = L.marker([<xsl:call-template name="full-map-point"><xsl:with-param name="geo" select="string(./tei:location/tei:geo/@source)"/></xsl:call-template>]).addTo(map);
 								
 								marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/>.bindPopup(&quot;<xsl:value-of select="./tei:placeName[@type='primary']"/>&#58;<br/>
-								<xsl:for-each select="./tei:linkGrp[string(@corresp)=$hh4]">
+								<xsl:for-each select="./tei:linkGrp[substring(string(@corresp), 1, 42)=substring($hh4, 1, 42)]">
+									<xsl:text>Lines: </xsl:text>
 									<xsl:sort select="@n" data-type="number"/>
-									<xsl:value-of select="@n"/><br/>
+									<xsl:value-of select="string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target)"/>
+									<xsl:text>-</xsl:text>	
+									<xsl:value-of select="number(string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target)) - 1"/>
+									<!--@xml:lang=document($hh4)//tei:div[1]/@xml:lang--><br/>
 								</xsl:for-each>&quot;).openPopup();
 								</xsl:for-each><![CDATA[
 					]]>
@@ -395,7 +399,7 @@
 		<xsl:variable name="pleiades2" select="document('pleiades-xml2.xml')//item[@type='object']"/>-->
 		const marker_<xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.marker([]]>
 		<xsl:call-template name="choose-points">
-			<xsl:with-param name="geometry" select="($pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='geometry'])[1]"/> <!-- Cheated a little here: this is where we pull the geographic data, but if it is attested in multiple sources, the map breaks. Currently, this picks the first set of coordinate data in "features" and sticks with that.-->
+			<xsl:with-param name="geometry" select="$pleiades[boolean(./pair[text() = string($id)])]"/> <!-- Cheated a little here: this is where we pull the geographic data, but if it is attested in multiple sources, the map breaks. Currently, this picks the first set of coordinate data in "features" and sticks with that.-->
 		</xsl:call-template><![CDATA[]).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>
 		
 		<!--The following binds a popup to the marker which has the Pleiades URL (the one ending in pair[@name='link']/text()) and the other the description of the source (the one ending in pair[@name='description']/text()). It also adds a description from the hh-place-names.xml document, if one is available-->
@@ -407,24 +411,29 @@
 		<xsl:param name="geometry"/>
 		
 		<xsl:choose>
-			<xsl:when test="count($geometry//pair[@name='coordinates']/*) &gt; 0">
+			<xsl:when test="count(($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]//pair[@name='coordinates']/*) &gt; 0">
 				<xsl:choose>
 				<!--If it is a Point...-->
-				<xsl:when test="$geometry/pair[@name='type']/text() = 'Point'">
+				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'Point'">
 					<xsl:call-template name="point-template">
-						<xsl:with-param name="array" select="$geometry/pair[@name='coordinates']"/>
+						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:call-template name="placeholder-coord">
-						<xsl:with-param name="array" select="$geometry/../../../pair[@name='reprPoint']"/>
+						<xsl:with-param name="array" select="$geometry/pair[@name='reprPoint']"/>
 					</xsl:call-template>
 						
 				</xsl:otherwise>
 				</xsl:choose>
 			</xsl:when>
+			<xsl:when test="boolean($geometry/pair[@name='reprPoint']/*)">
+				<xsl:call-template name="placeholder-coord">
+						<xsl:with-param name="array" select="$geometry/pair[@name='reprPoint']"/>
+					</xsl:call-template>
+			</xsl:when>
 			<xsl:otherwise>
-				<xsl:text>0,0</xsl:text>
+				<xsl:text>37.3920222,25.2702389</xsl:text>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -443,10 +452,13 @@
 	</xsl:template>
 	
 	<xsl:template name="full-map-point">
-		<xsl:param name="place"/>
+		<xsl:param name="geo"/>
 		
-		<xsl:value-of select="concat($place/pair[@name='reprPoint']/item[2]/text(), ',', $place/pair[@name='reprPoint']/item[1]/text())"/>
+				<xsl:value-of select="document('hh-pleiades-data.xml')//item[@type='object' and ./pair[@name='id']/text() = $geo]/pair[@name='reprPoint']/item[2]/text()"/>,<xsl:value-of select="document('hh-pleiades-data.xml')/json/item[@type='object' and ./pair[@name='id']/text() = $geo]/pair[@name='reprPoint']/item[1]/text()"/>
+			
 	</xsl:template>
+	
+	
 	
 	<!--
 	<xsl:template name="MultiLineString-template">
