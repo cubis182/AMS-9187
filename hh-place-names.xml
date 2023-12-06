@@ -44,6 +44,10 @@
 			Multiple places in one line/group:
 			In this case, the first location mentioned in said section takes on the next @n section number, without any suffix. Every subsequent location adds a decimal and starts at 2, so 19, then 19.2, 19.3, etc. Over 10, it still continues, so 2.9 to 2.10, then 2.11, etc.
 			
+			The secondary placeName is usually one that is more descriptive of what the Pleiades data represents
+			
+			Remember to escape quotes in <desc></desc>!
+			
 			The line numbers currently stay the same. Maybe later I will change that to a reference.
 			
 			TO-DO:
@@ -590,6 +594,7 @@
 					<location>
 						<geo source="570391">37.940, 22.397</geo>
 					</location>
+					<desc>I use the general location of Mt. Cyllene for Maia's cave here: this does not mean the point on the map here represents a supposed specific location of the cave.</desc>
 				</place>
 				<place>
 					<placeName>Apollo's Cattle</placeName>
@@ -684,8 +689,9 @@
 					<placeName type="primary">Lelantine Plain</placeName>
 					<placeName type="short">lela</placeName>
 					<location>
-						<geo source="540911">40.360, 22.487</geo>
+						<geo source="540912">40.360, 22.487</geo>
 					</location>
+					<desc>Using the location data for the Lelantus river; the default Pleiades location for the Lelantine plain is clearly inaccurate, it is not even on Euboia.</desc>
 					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
 						<ptr xml:lang="grc" type="start-before" target="220"/>
@@ -867,7 +873,7 @@
 					</linkGrp>
 				</place>
 				<place>
-					<placeName type="primary">Alpheios</placeName>
+					<placeName type="primary">Alpheios River</placeName>
 					<placeName type="short">alph</placeName>
 					<linkGrp n="5" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="101"/>
@@ -893,6 +899,7 @@
 				<place>
 					<placeName type="primary">Pylos</placeName>
 					<placeName type="short">pylos</placeName>
+					<placeName type="secondary">Tryphalia</placeName>
 					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="215"/>
 						<ptr xml:lang="grc" type="end-after" target="227"/>
@@ -916,7 +923,9 @@
 					<location>
 						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location); Manto gives Tryphalian Pylos as the proper one
 						<geo source="573490">37.515, 21.873</geo>-->
+						<geo source="570754"></geo>
 					</location>
+					<desc>Since we do not really know where this Pylos is - for Nestor's Pylos is much further south - I am going with the note in the Barrington Atlas which suggests it is in Tryphalia, whose map data I am using here. That is the same thing as saying \"near the Alpheios\" like the hymn does, but using this region both expresses the uncertainty of its location and what area the hymnist was referring to more accurately. This is true for both the Hymn to Apollo and Hermes, where it is described as near the Alpheios.</desc>
 				</place>
 				<place>
 					<placeName type="primary">Krounoi</placeName> <!-- May be Krounoi?-->

@@ -1,0 +1,1362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>DHSI 2023 Text Encoding Fundamentals - Personography Template</title>
+				<author>
+					<!-- Keeping as an example <persName ref="yourPersonography.xml#c_crompton">Connie Crompton</persName> -->
+					<persName>Matthew DeHass</persName>
+				</author>
+			</titleStmt>
+			<publicationStmt>
+            
+         </publicationStmt>
+			<sourceDesc>
+				<bibl>
+					<note>Born Digital</note>
+				</bibl>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<div>
+			Welcome to the Homeric Hymn to Hermes! If you hover over the indicated spots, a map should show up if there is data available. Make sure to hover for more than a moment: the map can take a second to load.
+			
+			Instructions:
+			
+			I would encourage you to use Google Chrome, as that is how I tested the software.
+		</div>
+			<listPlace>
+			
+			</listPlace>
+			<listPlace>
+				<!-- Because of the way I am currently implementing it, every line needs a space attribute, so there can be an empty place node for before and after the action goes
+			
+			
+			Rules:
+			The order of appearance of places in the hymns needs to be marked with @n. Additionally, no line can go unmarked, as the XSLT is now: you need to give empty place names for this stuff.
+			
+			Multiple places in one line/group:
+			In this case, the first location mentioned in said section takes on the next @n section number, without any suffix. Every subsequent location adds a decimal and starts at 2, so 19, then 19.2, 19.3, etc. Over 10, it still continues, so 2.9 to 2.10, then 2.11, etc.
+			
+			The line numbers currently stay the same. Maybe later I will change that to a reference.
+			
+			TO-DO:
+			-Change the @corresp on the place elements below to reference a list of the sources in another TEI doc
+			-SOLVED Fix having html in your TEI document
+			
+			
+			Empty linkGrp:
+			
+			<linkGrp n="" corresp="">
+				<ptr xml:lang="grc" type="start-before" target=""/>
+				<ptr xml:lang="grc" type="end-after" target=""/>
+				<ptr xml:lang="eng" type="start-before" target=""/>
+				<ptr xml:lang="eng" type="end-after" target=""/>
+			</linkGrp>
+			
+			Empty Demeter:
+			<linkGrp n="" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+				<ptr xml:lang="grc" type="start-before" target=""/>
+				<ptr xml:lang="grc" type="end-after" target=""/>
+				<ptr xml:lang="eng" type="start-before" target=""/>
+				<ptr xml:lang="eng" type="end-after" target=""/>
+			</linkGrp>
+			
+			Empty Aphrodite:
+			<linkGrp n="" corresp="./Perseus-DL/tlg0013/tlg005/tlg0013.tlg005.perseus-grc2.xml">
+				<ptr xml:lang="grc" type="start-before" target=""/>
+				<ptr xml:lang="grc" type="end-after" target=""/>
+				<ptr xml:lang="eng" type="start-before" target=""/>
+				<ptr xml:lang="eng" type="end-after" target=""/>
+			</linkGrp>
+			
+			Apollo:
+			<linkGrp n="" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+				<ptr xml:lang="grc" type="start-before" target=""/>
+				<ptr xml:lang="grc" type="end-after" target=""/>
+				<ptr xml:lang="eng" type="start-before" target=""/>
+				<ptr xml:lang="eng" type="end-after" target=""/>
+			</linkGrp>
+			-->
+			
+				<place>
+					<!-- See https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-placeName.html on what geographic things the <location/> can contain-->
+					<placeName type="example">
+					
+				</placeName>
+					<placeName type="short"/>
+					<location>
+						<geo/>
+						<!-- This is where coordinates will go -->
+					</location>
+				</place>
+				<place>
+					<placeName type="primary">empty</placeName>
+					<linkGrp n="1" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<!-- So we don't have to repeat geographic data, we have a linkGrp whose @n is the number in the order of phases, and -->
+						<ptr xml:lang="grc" type="start-before" target="1"/>
+						<ptr xml:lang="grc" type="end-after" target="4"/>
+						<ptr xml:lang="eng" type="start-before" target="1"/>
+						<ptr xml:lang="eng" type="end-after" target="1"/>
+					</linkGrp>
+					<linkGrp n="1" corresp="./Perseus-DL/tlg0013/tlg005/tlg0013.tlg005.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="1"/>
+						<ptr xml:lang="grc" type="end-after" target="57"/>
+						<ptr xml:lang="eng" type="start-before" target="1"/>
+						<ptr xml:lang="eng" type="end-after" target="50"/>
+					</linkGrp>
+					<linkGrp n="16" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="388"/>
+						<ptr xml:lang="grc" type="end-after" target="408"/>
+						<ptr xml:lang="eng" type="start-before" target="390"/>
+						<ptr xml:lang="eng" type="end-after" target="402a"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+					<linkGrp n="21" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="430"/>
+						<ptr xml:lang="grc" type="end-after" target="437"/>
+						<ptr xml:lang="eng" type="start-before" target="430"/>
+						<ptr xml:lang="eng" type="end-after" target="430"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+					
+					<!-- Empty place; currently, it doesn't check for this, just the absence of place data-->
+				</place>
+				<place>
+					<placeName type="primary">Maleia</placeName>
+					<placeName type="short">mal</placeName>
+					<location>
+						<geo source="570455"></geo>
+					</location>
+					<linkGrp n="17" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="409"/>
+						<ptr xml:lang="grc" type="end-after" target="410"/>
+						<ptr xml:lang="eng" type="start-before" target="405"/>
+						<ptr xml:lang="eng" type="end-after" target="405"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Tainaron</placeName>
+					<placeName type="short">taina</placeName>
+					<location>
+						<!-- Note that MANTO did not provide a citation to Apollo-->
+						<geo source="570702"></geo>
+					</location>
+					<linkGrp n="18" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="411"/>
+						<ptr xml:lang="grc" type="end-after" target="421"/>
+						<ptr xml:lang="eng" type="start-before" target="410"/>
+						<ptr xml:lang="eng" type="end-after" target="415"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Arene</placeName>
+					<placeName type="short">aren</placeName>
+					<location>
+						<!-- Note that MANTO did not provide a citation to Apollo, and that this Arene was not officially identified with the Apollo one-->
+						<geo source="573113"></geo>
+					</location>
+					<linkGrp n="19" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
+						<ptr xml:lang="grc" type="start-before" target="411"/>
+						<ptr xml:lang="grc" type="end-after" target="424"/>
+						<ptr xml:lang="eng" type="start-before" target="420"/>
+						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Argyphea</placeName>
+					<placeName type="short">argyph</placeName>
+					<!-- No map data-->
+					<linkGrp n="19.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
+						<ptr xml:lang="grc" type="start-before" target="411"/>
+						<ptr xml:lang="grc" type="end-after" target="424"/>
+						<ptr xml:lang="eng" type="start-before" target="420"/>
+						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Thryon</placeName>
+					<placeName type="short">thry</placeName>
+					<!-- Location unknown-->
+					<linkGrp n="19.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
+						<ptr xml:lang="grc" type="start-before" target="411"/>
+						<ptr xml:lang="grc" type="end-after" target="424"/>
+						<ptr xml:lang="eng" type="start-before" target="420"/>
+						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Aipy</placeName>
+					<placeName type="short">aipy</placeName>
+					<!--No data available-->
+					<linkGrp n="19.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
+						<ptr xml:lang="grc" type="start-before" target="411"/>
+						<ptr xml:lang="grc" type="end-after" target="424"/>
+						<ptr xml:lang="eng" type="start-before" target="420"/>
+						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Paphos</placeName>
+					
+					<placeName type="short">paph</placeName>
+					
+					<location>
+						<!-- Note that MANTO did not provide a citation to HAphr-->
+						<geo source="707596"></geo>
+					</location>
+					<linkGrp n="2" corresp="./Perseus-DL/tlg0013/tlg005/tlg0013.tlg005.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="58"/>
+						<ptr xml:lang="grc" type="end-after" target="67"/>
+						<ptr xml:lang="eng" type="start-before" target="55"/>
+						<ptr xml:lang="eng" type="end-after" target="60"/>
+					</linkGrp>
+
+				</place>
+				<place>
+					<placeName type="primary">Mt. Ida</placeName>
+					<placeName type="short">ida</placeName>
+					<location>
+						<geo source="550592"></geo>
+					</location>
+					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg005/tlg0013.tlg005.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="68"/>
+						<ptr xml:lang="grc" type="end-after" target="293"/>
+						<ptr xml:lang="eng" type="start-before" target="65"/>
+						<ptr xml:lang="eng" type="end-after" target="290"/>
+					</linkGrp>
+					<linkGrp n="2.11" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Skyros</placeName>
+					<placeName type="short">skyr</placeName>
+					<location>
+						<geo source="541108"></geo>
+					</location>
+					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Phokaia</placeName>
+					<placeName type="short">phokai</placeName>
+					<location>
+						<geo source="550823"></geo>
+					</location>
+					<linkGrp n="3.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Autokane</placeName>
+					<placeName type="short">autokan</placeName>
+					<location>
+						<geo source="550618"></geo>
+						<!-- MANTO gives no citations other than to HApollo-->
+					</location>
+					<linkGrp n="3.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Imbros</placeName>
+					<placeName type="short">imbr</placeName>
+					<location>
+						<geo source="501439"></geo>
+					</location>
+					<linkGrp n="3.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Lemnos</placeName>
+					<placeName type="short">lemn</placeName>
+					<location>
+						<geo source="550693"></geo>
+					</location>
+					<linkGrp n="3.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Lesbos</placeName>
+					<placeName type="short">lesb</placeName>
+					<location>
+						<geo source="550696"></geo>
+					</location>
+					<linkGrp n="3.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				
+				<place>
+					<placeName type="primary">Chios</placeName>
+					<placeName type="short">chi</placeName>
+					<location>
+						<geo source="550497"></geo>
+					</location>
+					<linkGrp n="3.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Mimas</placeName>
+					<placeName type="short">mimas</placeName>
+					<location>
+						<geo source="550744"></geo>
+					</location>
+					<linkGrp n="3.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korykos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+				
+					<placeName type="primary">Korykos</placeName>
+					<placeName type="short">koryk</placeName>
+					<location>
+						<geo source="550666"></geo>
+					</location>
+					<linkGrp n="3.10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Skyros, Phokaia, Autokane, Imbros, Lemnos, Lesbos, Makaros, Chios, Mimas, Korukos-->
+						<ptr xml:lang="grc" type="start-before" target="35"/>
+						<ptr xml:lang="grc" type="end-after" target="39"/>
+						<ptr xml:lang="eng" type="start-before" target="35"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Klaros</placeName>
+					<placeName type="short">klar</placeName>
+					<location>
+						<geo source="599719"></geo>
+					</location>
+					<linkGrp n="4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Aisagea</placeName>
+					<placeName type="short">aisag</placeName>
+					<!--No map data-->
+					<linkGrp n="4.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+					<desc>Location unknown, resorting to default</desc>
+				</place>
+				<place>
+					<placeName type="primary">Samos</placeName>
+					<placeName type="short">sam</placeName>
+					<location>
+						<geo source="599926"></geo>
+					</location>
+					<!-- Non-thracian?-->
+					<linkGrp n="4.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Mykale</placeName>
+					<placeName type="short">mykal</placeName>
+					<location>
+						<geo source="599805"></geo>
+					</location>
+					<linkGrp n="4.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Miletos</placeName>
+					<placeName type="short">milet</placeName>
+					<location>
+						<geo source="599799"></geo>
+					</location>
+					<linkGrp n="4.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Kos</placeName>
+					<placeName type="short">kos</placeName>
+					<location>
+						<!-- Spelling is Koos in the hymn, but even the LSJ puts it as Kos-->		
+						<geo source="599581"></geo>
+					</location>
+					<linkGrp n="4.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Knidos</placeName>
+					<placeName type="short">knid</placeName>
+					<location>
+						<!--MANTO claims this to be the Cnidos on Cyprus, not the Cnidos on the coast of Anatolia; I do not agree with that, so I am going with the other one-->
+						<geo source="599576"></geo>
+					</location>
+					<desc>MANTO claims this to be the Knidos on Cyprus, not the Knidos on the coast of Anatolia; since that is rather far away from where most of the other locations are, I am defaulting to the more famous Knidos on the Anatolian coast.</desc>
+					<linkGrp n="4.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Karpathos</placeName>
+					<placeName type="short">karpath</placeName>
+					<location>
+						<geo source="589841"></geo>
+					</location>
+					<linkGrp n="4.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+					
+				</place>
+				<place>
+					<placeName type="primary">Naxos</placeName>
+					<placeName type="short">nax</placeName>
+					<location>
+						<geo source="599822"></geo>
+					</location>
+					<linkGrp n="4.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Paros</placeName>
+					<placeName type="short">par</placeName>
+					<location>
+						<geo source="599868"></geo>
+					</location>
+					<linkGrp n="4.10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Rhenaia</placeName>
+					<placeName type="short">rhenai</placeName>
+					<location>
+						<geo source="599919"></geo>
+					</location>
+					<linkGrp n="4.11" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="40"/>
+						<ptr xml:lang="grc" type="end-after" target="44"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="40"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Delos</placeName>
+					<placeName type="short">delos</placeName>
+					<location>
+						<geo source="599588"></geo>
+					</location>
+					<linkGrp n="5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
+						<ptr xml:lang="grc" type="start-before" target="45"/>
+						<ptr xml:lang="grc" type="end-after" target="107"/>
+						<ptr xml:lang="eng" type="start-before" target="45"/>
+						<ptr xml:lang="eng" type="end-after" target="100"/>
+					</linkGrp>
+					<linkGrp n="7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="115"/>
+						<ptr xml:lang="grc" type="end-after" target="215"/>
+						<ptr xml:lang="eng" type="start-before" target="115"/>
+						<ptr xml:lang="eng" type="end-after" target="210"/>
+					</linkGrp>
+
+				</place>
+				<place>
+					<placeName type="primary">Phrygia</placeName>
+					<!-- Mentioned line 112 of HAphr, but I am not sure I will include it yet-->
+				</place>
+				<place>
+					<placeName type="primary">Transition</placeName>
+					<placeName type="short">trans</placeName>
+					<linkGrp n="2" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="38"/>
+						<ptr xml:lang="grc" type="end-after" target="61"/>
+						<ptr xml:lang="eng" type="start-before" target="40"/>
+						<ptr xml:lang="eng" type="end-after" target="55"/>
+					</linkGrp>
+				</place>
+				<place>
+					<!-- Line 4-end of 69 (also, decided to do away with the xpointer scheme for now)-->
+					<linkGrp n="2" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="5"/>
+						<!-- worry about the namespaces later-->
+						<ptr xml:lang="grc" type="end-after" target="69"/>
+						<ptr xml:lang="eng" type="start-before" target="5"/>
+						<ptr xml:lang="eng" type="end-after" target="65"/>
+					</linkGrp>
+					<linkGrp n="7" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="141"/>
+						<ptr xml:lang="grc" type="end-after" target="183"/>
+						<ptr xml:lang="eng" type="start-before" target="140"/>
+						<ptr xml:lang="eng" type="end-after" target="180"/>
+					</linkGrp>
+					<linkGrp n="10" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="228"/>
+						<ptr xml:lang="grc" type="end-after" target="321"/>
+						<ptr xml:lang="eng" type="start-before" target="225"/>
+						<ptr xml:lang="eng" type="end-after" target="315"/>
+					</linkGrp>
+					<placeName type="primary">Maia's Cave</placeName>
+					<placeName type="short">maia</placeName>
+					<placeName type="secondary">Mt. Cyllene</placeName>
+					<location>
+						<geo source="570391">37.940, 22.397</geo>
+					</location>
+				</place>
+				<place>
+					<placeName>Apollo's Cattle</placeName>
+					<placeName type="short">cattle</placeName>
+					<placeName type="primary">Pieria</placeName>
+					<!-- Figure out how alternatives work later-->
+					<location>
+						<geo source="491696">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="70"/>
+						<ptr xml:lang="grc" type="end-after" target="87"/>
+						<ptr xml:lang="eng" type="start-before" target="70"/>
+						<ptr xml:lang="eng" type="end-after" target="80"/>
+					</linkGrp>
+					<linkGrp n="8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
+						<ptr xml:lang="grc" type="start-before" target="216"/>
+						<ptr xml:lang="grc" type="end-after" target="219"/>
+						<ptr xml:lang="eng" type="start-before" target="215"/>
+						<ptr xml:lang="eng" type="end-after" target="215"/>
+					</linkGrp>
+
+				</place>
+				<place>
+					<placeName type="primary">Lektos</placeName>
+					<placeName type="short">lekt</placeName>
+					<!-- MANTO gives as unlocatable-->
+					<linkGrp n="8.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
+						<ptr xml:lang="grc" type="start-before" target="216"/>
+						<ptr xml:lang="grc" type="end-after" target="219"/>
+						<ptr xml:lang="eng" type="start-before" target="215"/>
+						<ptr xml:lang="eng" type="end-after" target="215"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Dodona</placeName>
+					<placeName type="short">dodon</placeName>
+					<!-- Pleiades tag is 543686, but it has no location; I know it is Dodona because, according to the catalogue of ships (2.749), the Enienes live in Dodona, and MANTO gives this one, Thessalian Dodona, as the one ruled by Gouneus who is mentioned in that passage-->
+					<linkGrp n="8.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
+						<ptr xml:lang="grc" type="start-before" target="216"/>
+						<ptr xml:lang="grc" type="end-after" target="219"/>
+						<ptr xml:lang="eng" type="start-before" target="215"/>
+						<ptr xml:lang="eng" type="end-after" target="215"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Perrhaibia</placeName>
+					<placeName type="short">perrhai</placeName>
+					<location>
+						<geo source="541027">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="8.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
+						<ptr xml:lang="grc" type="start-before" target="216"/>
+						<ptr xml:lang="grc" type="end-after" target="219"/>
+						<ptr xml:lang="eng" type="start-before" target="215"/>
+						<ptr xml:lang="eng" type="end-after" target="215"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Iolkus</placeName>
+					<placeName type="short">iolk</placeName>
+					<location>
+						<geo source="540837">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="8.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
+						<ptr xml:lang="grc" type="start-before" target="216"/>
+						<ptr xml:lang="grc" type="end-after" target="219"/>
+						<ptr xml:lang="eng" type="start-before" target="215"/>
+						<ptr xml:lang="eng" type="end-after" target="215"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Kenaion</placeName>
+					<placeName type="short">kenai</placeName>
+					<location>
+						<geo source="540858">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="8.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
+						<ptr xml:lang="grc" type="start-before" target="216"/>
+						<ptr xml:lang="grc" type="end-after" target="219"/>
+						<ptr xml:lang="eng" type="start-before" target="215"/>
+						<ptr xml:lang="eng" type="end-after" target="215"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Lelantine Plain</placeName>
+					<placeName type="short">lela</placeName>
+					<location>
+						<geo source="540912">40.360, 22.487</geo>
+					</location>
+					<desc>Using the location data for the Lelantus river; the default Pleiades location for the Lelantine plain is clearly inaccurate, it is not even on Euboia.</desc>
+					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
+						<ptr xml:lang="grc" type="start-before" target="220"/>
+						<ptr xml:lang="grc" type="end-after" target="224"/>
+						<ptr xml:lang="eng" type="start-before" target="220"/>
+						<ptr xml:lang="eng" type="end-after" target="220"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Euripos</placeName>
+					<placeName type="short">eurip</placeName>
+					<location>
+						<geo source="540783">40.360, 22.487</geo>
+					</location>
+					<!-- see note in the Apollo linkGrp below-->
+					<linkGrp n="9.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
+						<ptr xml:lang="grc" type="start-before" target="220"/>
+						<ptr xml:lang="grc" type="end-after" target="224"/>
+						<ptr xml:lang="eng" type="start-before" target="220"/>
+						<ptr xml:lang="eng" type="end-after" target="220"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Mykalessos</placeName>
+					<placeName type="short">mykaless</placeName>
+					<location>
+						<geo source="540953">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="9.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
+						<ptr xml:lang="grc" type="start-before" target="220"/>
+						<ptr xml:lang="grc" type="end-after" target="224"/>
+						<ptr xml:lang="eng" type="start-before" target="220"/>
+						<ptr xml:lang="eng" type="end-after" target="220"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Teumessos</placeName>
+					<placeName type="short">teumess</placeName>
+					<location>
+						<geo source="541133">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="9.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
+						<ptr xml:lang="grc" type="start-before" target="220"/>
+						<ptr xml:lang="grc" type="end-after" target="224"/>
+						<ptr xml:lang="eng" type="start-before" target="220"/>
+						<ptr xml:lang="eng" type="end-after" target="220"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Thebes</placeName>
+					<placeName type="short">thebes</placeName>
+					<location>
+						<geo source="541138">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
+						<ptr xml:lang="grc" type="start-before" target="225"/>
+						<ptr xml:lang="grc" type="end-after" target="228"/>
+						<ptr xml:lang="eng" type="start-before" target="225"/>
+						<ptr xml:lang="eng" type="end-after" target="225"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Onchestos</placeName>
+					<placeName type="short">onchestos</placeName>
+					<geogFeat>plain</geogFeat>
+					<location>
+						<geo source="540984">38.373, 23.150</geo>
+					</location>
+					<linkGrp n="4" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="88"/>
+						<ptr xml:lang="grc" type="end-after" target="100"/>
+						<ptr xml:lang="eng" type="start-before" target="85"/>
+						<ptr xml:lang="eng" type="end-after" target="95"/>
+					</linkGrp>
+					<linkGrp n="8" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<desc>Now it switches to Apollo, how to mark transitions????</desc>
+						<ptr xml:lang="grc" type="start-before" target="184"/>
+						<ptr xml:lang="grc" type="end-after" target="214"/>
+						<ptr xml:lang="eng" type="start-before" target="185"/>
+						<ptr xml:lang="eng" type="end-after" target="210"/>
+					</linkGrp>
+					<linkGrp n="11" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Onchestos, -->
+						<ptr xml:lang="grc" type="start-before" target="229"/>
+						<ptr xml:lang="grc" type="end-after" target="238"/>
+						<ptr xml:lang="eng" type="start-before" target="230"/>
+						<ptr xml:lang="eng" type="end-after" target="235"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Kephissos</placeName>
+					<placeName type="short">kephis</placeName>
+					<location>
+						<geo source="540700">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="12" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
+						<ptr xml:lang="grc" type="start-before" target="239"/>
+						<ptr xml:lang="grc" type="end-after" target="243"/>
+						<ptr xml:lang="eng" type="start-before" target="240"/>
+						<ptr xml:lang="eng" type="end-after" target="240"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Lilaia</placeName>
+					<placeName type="short">lilai</placeName>
+					<location>
+						<geo source="540915">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="12.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
+						<ptr xml:lang="grc" type="start-before" target="239"/>
+						<ptr xml:lang="grc" type="end-after" target="243"/>
+						<ptr xml:lang="eng" type="start-before" target="240"/>
+						<ptr xml:lang="eng" type="end-after" target="240"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Ocalea</placeName>
+					<placeName type="short">ocal</placeName>
+					<location>
+						<geo source="540978">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="12.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
+						<ptr xml:lang="grc" type="start-before" target="239"/>
+						<ptr xml:lang="grc" type="end-after" target="243"/>
+						<ptr xml:lang="eng" type="start-before" target="240"/>
+						<ptr xml:lang="eng" type="end-after" target="240"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Haliartos</placeName>
+					<placeName type="short">haliart</placeName>
+					<location>
+						<geo source="540801">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="12.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
+						<ptr xml:lang="grc" type="start-before" target="239"/>
+						<ptr xml:lang="grc" type="end-after" target="243"/>
+						<ptr xml:lang="eng" type="start-before" target="240"/>
+						<ptr xml:lang="eng" type="end-after" target="240"/>
+					</linkGrp>
+					<linkGrp n="13" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="244"/>
+						<ptr xml:lang="grc" type="end-after" target="281"/>
+						<ptr xml:lang="eng" type="start-before" target="245"/>
+						<ptr xml:lang="eng" type="end-after" target="275"/>
+					</linkGrp>
+					<linkGrp n="15" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="377"/>
+						<ptr xml:lang="grc" type="end-after" target="387"/>
+						<ptr xml:lang="eng" type="start-before" target="375"/>
+						<ptr xml:lang="eng" type="end-after" target="385"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Krisa</placeName>
+					<placeName type="short">krisa</placeName>
+					<location>
+						<geo source="540889">40.360, 22.487</geo>
+					</location>
+					<linkGrp n="14" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="282"/>
+						<ptr xml:lang="grc" type="end-after" target="376"/>
+						<ptr xml:lang="eng" type="start-before" target="280"/>
+						<ptr xml:lang="eng" type="end-after" target="370"/>
+					</linkGrp>
+					<linkGrp n="22" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="438"/>
+						<ptr xml:lang="grc" type="end-after" target="546"/>
+						<ptr xml:lang="eng" type="start-before" target="435"/>
+						<ptr xml:lang="eng" type="end-after" target="545"/> 
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Alpheios</placeName>
+					<placeName type="short">alph</placeName>
+					<linkGrp n="5" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="101"/>
+						<ptr xml:lang="grc" type="end-after" target="102"/>
+						<ptr xml:lang="eng" type="start-before" target="100"/>
+						<ptr xml:lang="eng" type="end-after" target="100"/>
+					</linkGrp>
+					<location>
+						<geo source="570067">37.515, 21.873</geo>
+					</location>
+					<!-- He just reaches the Alpheios-->
+				</place>
+				<place>
+					<placeName type="primary">Stolen Cattle Cave?</placeName>
+					<placeName type="short">myst_cave</placeName>
+					<linkGrp n="6" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="103"/>
+						<ptr xml:lang="grc" type="end-after" target="140"/>
+						<ptr xml:lang="eng" type="start-before" target="105"/>
+						<ptr xml:lang="eng" type="end-after" target="135"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Pylos</placeName>
+					<placeName type="short">pylos</placeName>
+					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="215"/>
+						<ptr xml:lang="grc" type="end-after" target="227"/>
+						<ptr xml:lang="eng" type="start-before" target="215"/>
+						<ptr xml:lang="eng" type="end-after" target="220"/>
+					</linkGrp>
+					<linkGrp n="12" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<desc>Near the Alpheios</desc>
+						<ptr xml:lang="grc" type="start-before" target="397"/>
+						<ptr xml:lang="grc" type="end-after" target="503"/>
+						<ptr xml:lang="eng" type="start-before" target="395"/>
+						<ptr xml:lang="eng" type="end-after" target="500"/>
+					</linkGrp>
+					<linkGrp n="19.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Arene, Argyphea, Thryon, Aepy, Pylos-->
+						<ptr xml:lang="grc" type="start-before" target="411"/>
+						<ptr xml:lang="grc" type="end-after" target="424"/>
+						<ptr xml:lang="eng" type="start-before" target="420"/>
+						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+					<location>
+						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location); Manto gives Tryphalian Pylos as the proper one
+						<geo source="573490">37.515, 21.873</geo>-->
+					</location>
+				</place>
+				<place>
+					<placeName type="primary">Krounoi</placeName> <!-- May be Krounoi?-->
+					<placeName type="short">kroun</placeName>
+					<location>
+						<!--<geo source="573314"></geo>-->
+					</location>
+					<linkGrp n="20" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Khalkis</placeName>
+					<placeName type="short">khalk</placeName>
+					<!--According to MANTO, this is not the Euboian Chalcis, which may make sense condiering his trajectory-->
+					<linkGrp n="20.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Dyme</placeName>
+					<placeName type="short">dyme</placeName>
+					<location>
+						<geo source="570205"></geo>
+					</location>
+					<linkGrp n="20.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Elis</placeName>
+					<placeName type="short">elis</placeName>
+					<location>
+						<!--Went with the city, not the region, since he described it as where the Epeians hold power-->
+						<geo source="570220"></geo>
+					</location>
+					<linkGrp n="20.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Pherai</placeName>
+					<placeName type="short">pherai</placeName>
+					<!--Location is unclear, neither of the given ones seem to match-->
+					<!-- Form is Φερὰς -->
+					<linkGrp n="20.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Ithaka</placeName>
+					<placeName type="short">ithak</placeName>
+					<location>
+						<geo source="530906"></geo>
+					</location>
+					<linkGrp n="20.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Doulikhion</placeName>
+					<placeName type="short">doulikh</placeName>
+					<location>
+						<geo source="530845"></geo>
+					</location>
+					<linkGrp n="20.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Same</placeName>
+					<placeName type="short">same</placeName>
+					<!--Location unknown-->
+					<linkGrp n="20.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Zakynthos</placeName>
+					<placeName type="short">zakynth</placeName>
+					<location>
+						<geo source="531155"></geo>
+					</location>
+					<linkGrp n="20.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
+						<ptr xml:lang="grc" type="start-before" target="425"/>
+						<ptr xml:lang="grc" type="end-after" target="429"/>
+						<ptr xml:lang="eng" type="start-before" target="425"/>
+						<ptr xml:lang="eng" type="end-after" target="425"/> <!-- WILL THIS WORK?-->
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Mt. Olympos</placeName>
+					<placeName type="short">olymp</placeName>
+					<linkGrp n="11" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="322"/>
+						<ptr xml:lang="grc" type="end-after" target="396"/>
+						<ptr xml:lang="eng" type="start-before" target="320"/>
+						<ptr xml:lang="eng" type="end-after" target="390"/>
+					</linkGrp>
+					<linkGrp n="13" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="504"/>
+						<ptr xml:lang="grc" type="end-after" target="580"/>
+						<ptr xml:lang="eng" type="start-before" target="505"/>
+						<ptr xml:lang="eng" type="end-after" target="580"/>
+					</linkGrp>
+					<linkGrp n="8" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="313"/>
+						<ptr xml:lang="grc" type="end-after" target="339"/>
+						<ptr xml:lang="eng" type="start-before" target="310"/>
+						<ptr xml:lang="eng" type="end-after" target="335"/>
+					</linkGrp>
+					<linkGrp n="13" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="483"/>
+						<ptr xml:lang="grc" type="end-after" target="495"/>
+						<ptr xml:lang="eng" type="start-before" target="485"/>
+						<ptr xml:lang="eng" type="end-after" target="495"/>
+					</linkGrp>
+					<linkGrp n="1" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="1"/>
+						<ptr xml:lang="grc" type="end-after" target="29"/>
+						<ptr xml:lang="eng" type="start-before" target="1"/>
+						<ptr xml:lang="eng" type="end-after" target="25"/>
+					</linkGrp>
+					<linkGrp n="6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="108"/>
+						<ptr xml:lang="grc" type="end-after" target="114"/>
+						<ptr xml:lang="eng" type="start-before" target="105"/>
+						<ptr xml:lang="eng" type="end-after" target="110"/>
+					</linkGrp>
+					<location>
+						<geo source="491677">40.09, 22.36</geo>
+					</location>
+				</place>
+				<place>
+					<placeName type="primary">Hades</placeName>
+					<placeName type="short">hades</placeName>
+					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="340"/>
+						<ptr xml:lang="grc" type="end-after" target="383"/>
+						<ptr xml:lang="eng" type="start-before" target="340"/>
+						<ptr xml:lang="eng" type="end-after" target="380"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Nysian Plain</placeName>
+					<placeName type="short">nys</placeName>
+				<linkGrp n="1" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="1"/>
+						<ptr xml:lang="grc" type="end-after" target="37"/>
+						<ptr xml:lang="eng" type="start-before" target="1"/>
+						<ptr xml:lang="eng" type="end-after" target="35"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Helios</placeName>
+					<placeName type="short">hel</placeName>
+					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="62"/>
+						<ptr xml:lang="grc" type="end-after" target="89"/>
+						<ptr xml:lang="eng" type="start-before" target="60"/>
+						<ptr xml:lang="eng" type="end-after" target="87"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Eleusis</placeName>
+					<placeName type="short">eleu</placeName>
+					
+					<linkGrp n="4" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="90"/>
+						<ptr xml:lang="grc" type="end-after" target="122"/>
+						<ptr xml:lang="eng" type="start-before" target="90"/>
+						<ptr xml:lang="eng" type="end-after" target="118"/>
+					</linkGrp>
+					<linkGrp n="7" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="133"/>
+						<ptr xml:lang="grc" type="end-after" target="312"/>
+						<ptr xml:lang="eng" type="start-before" target="135"/>
+						<ptr xml:lang="eng" type="end-after" target="305"/>
+					</linkGrp>
+					<linkGrp n="10" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="384"/>
+						<ptr xml:lang="grc" type="end-after" target="447"/>
+						<ptr xml:lang="eng" type="start-before" target="385"/>
+						<ptr xml:lang="eng" type="end-after" target="445"/>
+					</linkGrp>
+					<linkGrp n="12" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="449"/>
+						<ptr xml:lang="grc" type="end-after" target="482"/>
+						<ptr xml:lang="eng" type="start-before" target="470"/>
+						<ptr xml:lang="eng" type="end-after" target="480"/>
+					</linkGrp>
+					<location>
+						<geo source="579920"></geo>
+					</location>
+				</place>
+				<place>
+					<placeName type="primary">Rharion Plain</placeName>
+					<placeName type="short">rhar</placeName>
+					<location>
+						<geo source="585954"></geo>
+					</location>
+					<linkGrp n="11" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="448"/>
+						<ptr xml:lang="grc" type="end-after" target="472"/>
+						<ptr xml:lang="eng" type="start-before" target="450"/>
+						<ptr xml:lang="eng" type="end-after" target="465"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Crete</placeName>
+					<placeName type="short">cret</placeName>
+					<location>
+						<geo source="589748"></geo>
+					</location>
+					<linkGrp n="5" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="123"/>
+						<ptr xml:lang="grc" type="end-after" target="125"/>
+						<ptr xml:lang="eng" type="start-before" target="120"/>
+						<ptr xml:lang="eng" type="end-after" target="120"/>
+					</linkGrp>
+					<linkGrp n="2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Athens</placeName>
+					<placeName type="short">athen</placeName>
+					<location>
+						<geo source="579885"></geo>
+					</location>
+					<linkGrp n="2.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Aigina</placeName>
+					<placeName type="short">aigin</placeName>
+					<location>
+						<geo source="579844"></geo>
+					</location>
+					<linkGrp n="2.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Euboia</placeName>
+					<placeName type="short">eubo</placeName>
+					<location>
+						<geo source="540775"></geo>
+					</location>
+					<linkGrp n="2.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Aigai</placeName>
+					<placeName type="short">aigai</placeName>
+					<location>
+						<geo source="570040"></geo>
+					</location>
+					<linkGrp n="2.5" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Peiresiai</placeName>
+					<placeName type="short">peires</placeName>
+					<!--Couldn't find it-->
+					<linkGrp n="2.6" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Peparethos</placeName>
+					<placeName type="short">pepareth</placeName>
+					<location>
+						<geo source="541024"></geo>
+					</location>
+					<linkGrp n="2.7" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Athoos</placeName>
+					<placeName type="short">athoos</placeName>
+					<location>
+						<geo source="501366"></geo>
+					</location>
+					<!-- Thracian,-->
+					<linkGrp n="2.8" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Pelion</placeName>
+					<placeName type="short">pelion</placeName>
+					<location>
+						<geo source="541021"></geo>
+					</location>
+					<linkGrp n="2.9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Samothrace</placeName>
+					<placeName type="short">samThrac</placeName>
+					<location>
+						<geo source="501597"></geo>
+					</location>
+					<!-- Thracian-->
+					<linkGrp n="2.10" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
+						<!-- Full list: Crete, Athens, Aigina, Euboia, Aigai, Peiresiai, Peparethos, Athoos, Pelion, Samos, Ida-->
+						<ptr xml:lang="grc" type="start-before" target="30"/>
+						<ptr xml:lang="grc" type="end-after" target="34"/>
+						<ptr xml:lang="eng" type="start-before" target="30"/>
+						<ptr xml:lang="eng" type="end-after" target="30"/>
+					</linkGrp>
+				</place>
+				<place>
+					<placeName type="primary">Thorikos</placeName>
+					<placeName type="short">thor</placeName>
+					<location>
+						<geo source="580119"></geo>
+					</location>
+					<linkGrp n="6" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
+						<ptr xml:lang="grc" type="start-before" target="126"/>
+						<ptr xml:lang="grc" type="end-after" target="132"/>
+						<ptr xml:lang="eng" type="start-before" target="125"/>
+						<ptr xml:lang="eng" type="end-after" target="130"/>
+					</linkGrp>
+				</place>
+			</listPlace>
+			
+			<!--
+		KEEPING THIS AS AN EXAMPLE
+         <listPerson type="project" xml:id="project">
+            <person xml:id="c_crompton">
+               <persName><forename>Constance</forename><surname>Crompton></surname></persName>
+            </person>
+            <person xml:id="e_murphy">
+               <persName><forename>Emily</forename><surname>Murphy</surname></persName>
+            </person>
+            <person xml:id="l_zickel">
+               <persName><forename>Lee</forename><surname>Zickel</surname></persName>
+            </person>
+            <person xml:id="personEditing" corresp="letterTemplate.xml">
+               <persName><forename/><surname/></persName>
+            </person>
+            <person xml:id="transcriber" corresp="letterTemplate.xml">
+               <persName><forename/><surname/></persName>
+            </person>
+            <person xml:id="proofer" corresp="letterTemplate.xml">
+               <persName><forename/><surname/></persName>
+            </person>
+            <person xml:id="encoder" corresp="letterTemplate.xml">
+               <persName><forename/><surname/></persName>
+            </person>
+            <person xml:id="teiProofer" corresp="letterTemplate.xml">
+               <persName><forename/><surname/></persName>
+            </person>
+         </listPerson>
+		-->
+		</body>
+		<back>
+			<!--
+		KEEPING AS AN EXAMPLE
+         <note xml:id="persNoteProject" corresp="#project"><p>This part of the Personography
+               contains the list of peoples to be credited for work on this project. Many have been
+               left as templates for your later reference. </p></note>
+		  -->
+		</back>
+	</text>
+</TEI>

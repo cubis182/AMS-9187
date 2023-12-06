@@ -47,6 +47,11 @@
 		</xsl:choose>
 		</xsl:element>
 	</xsl:template>
+	
+	<xsl:template name="doc-title">
+		<xsl:param name="hh4"/>
+		<xsl:value-of select="document($hh4)/tei:TEI/tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title/text()"/>
+	</xsl:template>
 		
 	
 	<xsl:variable name="place" select="string(document($placeography)//tei:place[2]/tei:ptr[@type='start-before']/@target)"/>
@@ -129,16 +134,22 @@
 		<header>
 			<!-- Retrieve the Greek title and make it the header-->
 			
-			<h1><xsl:value-of select="document($hh4)//tei:div[1]/tei:head"/></h1><br/>
+			<h1><xsl:call-template name="doc-title"><xsl:with-param name="hh4" select="$hh4"/></xsl:call-template></h1><br/>
 		</header>
 		
-		<a href="hh-main-menu.html">Home</a><br/>
+		<a href="index.html">Home</a><br/>
 		
 		<!-- Add the link to the translation-->
 		<xsl:call-template name="swap-lang">
 			<xsl:with-param name='lang' select="document($hh4)//tei:div[1]/@xml:lang"/>
 			<xsl:with-param name="swapdoc" select=".//@swap"/>
 		</xsl:call-template>
+		<br/>
+		<p>
+		Welcome to the map of <xsl:call-template name="doc-title"><xsl:with-param name="hh4" select="$hh4"/></xsl:call-template>!
+		
+		This text is divided into <b>passages</b>. Each passage is accompanied by a map in the right column with each of the points (for which there is data) mapped out. Scroll all the way to the bottom for a comprehensive map of the hymn.
+		</p>
 		
 		<div>
 			
@@ -240,6 +251,12 @@
 		<div type="map-container">
 			
 			<div type="map">
+				<p>
+				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b>
+				</p>
+				<p>
+				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
+				</p>
 				<xsl:choose>
 					<xsl:when test="boolean($linkgrp/../tei:location)">
 						<xsl:call-template name="goog-url">
@@ -301,7 +318,7 @@
 					37.3920222,25.2702389
 				</xsl:otherwise>
 			</xsl:choose>
-			<![CDATA[], 8);
+			<![CDATA[], 6);
 
 			const ]]><xsl:value-of select="concat('tiles', string($passage))"/><![CDATA[ = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -337,6 +354,11 @@
 		<xsl:param name="placeography"/>
 		<xsl:param name="hh4"/>
 		
+		<p>
+		Full map of locations in <xsl:call-template name="doc-title"><xsl:with-param name="hh4" select="$hh4"/></xsl:call-template>:
+		
+		This map has all the locations in the hymn. The line should follow the path of the action, but some missing data means that this is still a work in progress. If you click on each popup, it will tell you the name of the location and where it appears in the hymn.
+		</p>
 		<xsl:element name="div">
 				<xsl:attribute name="id">map</xsl:attribute>
 				<xsl:attribute name="style">width: 800px; height: 600px;</xsl:attribute>
@@ -377,9 +399,9 @@
 									<xsl:value-of select="string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target)"/>
 									
 									<!--It is awkward to have something like 'Lines 101-101', so this checks to avoid that-->
-									<xsl:if test="number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target) - number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target) gt 1">
+									<xsl:if test="(number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target) - number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target)) &gt; 1">
 										<xsl:text>-</xsl:text>	
-										<xsl:value-of select="number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target) - 1"/>
+										<xsl:value-of select="number(string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target)) - 1"/>
 									</xsl:if>
 									<!--@xml:lang=document($hh4)//tei:div[1]/@xml:lang--><br/>
 								</xsl:for-each>&quot;).openPopup();
@@ -407,7 +429,7 @@
 		</xsl:call-template><![CDATA[]).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>
 		
 		<!--The following binds a popup to the marker which has the Pleiades URL (the one ending in pair[@name='link']/text()) and the other the description of the source (the one ending in pair[@name='description']/text()). It also adds a description from the hh-place-names.xml document, if one is available-->
-		marker_<xsl:value-of select="concat(string($placename), string($passage))"/>.bindPopup(&quot;<xsl:value-of select="./../tei:placeName[@type='primary']/text()"/>:<br/><![CDATA[<a href=\"]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='link']/text()"/><![CDATA[\">]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='description']/text()"/><![CDATA[</a>]]><br/><xsl:value-of select="$linkgrp/../tei:desc/text()"/><br/>&quot;)
+		marker_<xsl:value-of select="concat(string($placename), string($passage))"/>.bindPopup(&quot;<xsl:value-of select="./../tei:placeName[@type='primary']/text()"/>:<br/><![CDATA[<a href=\"]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='link']/text()"/><![CDATA[\" target=\"_blank\">]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='description']/text()"/><![CDATA[</a>]]><br/><xsl:value-of select="$linkgrp/../tei:desc/text()"/><br/>&quot;)
 	</xsl:template>		
 	
 	<xsl:template name="choose-points">
