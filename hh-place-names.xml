@@ -146,6 +146,7 @@
 				<place>
 					<placeName type="primary">Tainaron</placeName>
 					<placeName type="short">taina</placeName>
+					
 					<location>
 						<!-- Note that MANTO did not provide a citation to Apollo-->
 						<geo source="570702"></geo>
@@ -632,9 +633,13 @@
 					</linkGrp>
 				</place>
 				<place>
-					<placeName type="primary">Dodona</placeName>
+					<placeName type="primary">Dodona (Enienes)</placeName>
 					<placeName type="short">dodon</placeName>
 					<!-- Pleiades tag is 543686, but it has no location; I know it is Dodona because, according to the catalogue of ships (2.749), the Enienes live in Dodona, and MANTO gives this one, Thessalian Dodona, as the one ruled by Gouneus who is mentioned in that passage-->
+					<location>
+						<geo source="1332"></geo>
+					</location>
+					<desc>According to the catalogue of ships (&lt;i&gt;Il.&lt;/i&gt; 2.749), the Enienes are ruled by Gouneus, and they live in Thessalian Dodona (as opposed to the Dodona Epirus). </desc>
 					<linkGrp n="8.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
 						<ptr xml:lang="grc" type="start-before" target="216"/>
@@ -798,7 +803,7 @@
 						<ptr xml:lang="eng" type="start-before" target="240"/>
 						<ptr xml:lang="eng" type="end-after" target="240"/>
 					</linkGrp>
-					<desc>I assume the original stream flowed differently, because it comes after Ocalea and Haliartos in the hymnist's catalogue. </desc>
+					
 				</place>
 				<place>
 					<placeName type="primary">Lilaia</placeName>
@@ -818,7 +823,7 @@
 					<placeName type="primary">Ocalea</placeName>
 					<placeName type="short">ocal</placeName>
 					<location>
-						<geo source="540978">40.360, 22.487</geo>
+						<geo source="540978"></geo>
 					</location>
 					<linkGrp n="12.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
@@ -832,7 +837,7 @@
 					<placeName type="primary">Haliartos</placeName>
 					<placeName type="short">haliart</placeName>
 					<location>
-						<geo source="540801">40.360, 22.487</geo>
+						<geo source="540801"></geo>
 					</location>
 					<linkGrp n="12.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
@@ -857,8 +862,9 @@
 				<place>
 					<placeName type="primary">Krisa</placeName>
 					<placeName type="short">krisa</placeName>
+					<desc>I use only Krisa here and not a separate location for Delphi, since it is notvery present in the hymn.</desc>
 					<location>
-						<geo source="540889">40.360, 22.487</geo>
+						<geo source="540889"></geo>
 					</location>
 					<linkGrp n="14" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="282"/>
@@ -874,6 +880,7 @@
 					</linkGrp>
 				</place>
 				<place>
+					<desc>Keep in mind that it is likely the ancient Alpheios did not have the same path as in modern times.</desc>
 					<placeName type="primary">Alpheios River</placeName>
 					<placeName type="short">alph</placeName>
 					<linkGrp n="5" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
@@ -908,7 +915,7 @@
 						<ptr xml:lang="eng" type="end-after" target="220"/>
 					</linkGrp>
 					<linkGrp n="12" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
-						<desc>Near the Alpheios</desc>
+						
 						<ptr xml:lang="grc" type="start-before" target="397"/>
 						<ptr xml:lang="grc" type="end-after" target="503"/>
 						<ptr xml:lang="eng" type="start-before" target="395"/>
@@ -945,7 +952,7 @@
 				<place>
 					<placeName type="primary">Khalkis</placeName>
 					<placeName type="short">khalk</placeName>
-					<!--According to MANTO, this is not the Euboian Chalcis, which may make sense condiering his trajectory-->
+					
 					<linkGrp n="20.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -971,6 +978,7 @@
 				<place>
 					<placeName type="primary">Elis</placeName>
 					<placeName type="short">elis</placeName>
+					<desc>Since this is described in the hymn as the place where the Epeians hold power, I decided to mark the city of Elis, not the whole region</desc>
 					<location>
 						<!--Went with the city, not the region, since he described it as where the Epeians hold power-->
 						<geo source="570220"></geo>

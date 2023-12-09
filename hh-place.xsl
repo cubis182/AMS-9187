@@ -442,11 +442,6 @@
 			<xsl:when test="count(($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]//pair[@name='coordinates']/*) &gt; 0">
 				<xsl:choose>
 				<!--If it is a Point...-->
-				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'Point'">
-					<xsl:call-template name="point-template">
-						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
-					</xsl:call-template>
-				</xsl:when>
 				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'MultiLineString'">
 					<xsl:call-template name="multilinestr-template">
 						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
@@ -459,6 +454,11 @@
 				</xsl:when>
 				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'Polygon'">
 					<xsl:call-template name="polygon-template">
+						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'Point'">
+					<xsl:call-template name="point-template">
 						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
 					</xsl:call-template>
 				</xsl:when>
@@ -543,12 +543,10 @@
 		<xsl:for-each select="$array/item">
 			[<xsl:call-template name="multipoint-template">
 				<xsl:with-param name="array" select="."/>
-			</xsl:call-template>]
-			<xsl:choose>
+			</xsl:call-template>]<xsl:choose>
 				<xsl:when test="position() &lt; count($array/item)">,</xsl:when>
 				<xsl:otherwise></xsl:otherwise>
-			</xsl:choose>
-		</xsl:for-each>]
+			</xsl:choose></xsl:for-each>]
 	</xsl:template>
 	
 	
