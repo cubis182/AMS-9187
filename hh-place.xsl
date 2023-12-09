@@ -310,8 +310,8 @@
 			const ]]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.map(']]><xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[').setView([]]>
 			<xsl:choose>
 				<xsl:when test="count(document('hh-pleiades-data.xml')//item[@type='object' and boolean(./pair[text() = $coord])]/pair[@name='features']/*) &gt; 0">
-					<xsl:call-template name="choose-points">
-						<xsl:with-param name="geometry" select="document('hh-pleiades-data.xml')/json/*[boolean(./pair[text() = string($coord)])]"/>
+					<xsl:call-template name="bare-point">
+						<xsl:with-param name="array" select="document('hh-pleiades-data.xml')/json/*[boolean(./pair[text() = string($coord)])]/pair[@name='reprPoint']"/>
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:otherwise>
@@ -423,10 +423,11 @@
 		<!--These will have to be provided with the params
 		<xsl:variable name="pleiades1" select="document('pleiades-xml1.xml')//item[@type='object']"/>
 		<xsl:variable name="pleiades2" select="document('pleiades-xml2.xml')//item[@type='object']"/>-->
-		const marker_<xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = L.marker([]]>
+		const marker_<xsl:value-of select="concat(string($placename), string($passage))"/><![CDATA[ = ]]>
 		<xsl:call-template name="choose-points">
+			<xsl:with-param name="linkgrp" select="$linkgrp"/>
 			<xsl:with-param name="geometry" select="$pleiades[boolean(./pair[text() = string($id)])]"/> <!-- Cheated a little here: this is where we pull the geographic data, but if it is attested in multiple sources, the map breaks. Currently, this picks the first set of coordinate data in "features" and sticks with that.-->
-		</xsl:call-template><![CDATA[]).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>
+		</xsl:call-template><![CDATA[).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>
 		
 		<!--The following binds a popup to the marker which has the Pleiades URL (the one ending in pair[@name='link']/text()) and the other the description of the source (the one ending in pair[@name='description']/text()). It also adds a description from the hh-place-names.xml document, if one is available-->
 		marker_<xsl:value-of select="concat(string($placename), string($passage))"/>.bindPopup(&quot;<xsl:value-of select="./../tei:placeName[@type='primary']/text()"/>:<br/><![CDATA[<a href=\"]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='link']/text()"/><![CDATA[\" target=\"_blank\">]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='description']/text()"/><![CDATA[</a>]]><br/><xsl:value-of select="$linkgrp/../tei:desc/text()"/><br/>&quot;)
@@ -435,6 +436,7 @@
 	<xsl:template name="choose-points">
 		<!--This selects which template to use depending on whether the geometry is a Point, LineString, MultiLineString, Polygon or MultiPolygon (I checked the data to make sure this is it)-->
 		<xsl:param name="geometry"/>
+		<xsl:param name="linkgrp"/> <!--Added so we can have backup points in the case there is no Pleiades data-->
 		
 		<xsl:choose>
 			<xsl:when test="count(($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]//pair[@name='coordinates']/*) &gt; 0">
@@ -442,6 +444,21 @@
 				<!--If it is a Point...-->
 				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'Point'">
 					<xsl:call-template name="point-template">
+						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'MultiLineString'">
+					<xsl:call-template name="multilinestr-template">
+						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'LineString'">
+					<xsl:call-template name="linestr-template">
+						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:when test="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='type']/text() = 'Polygon'">
+					<xsl:call-template name="polygon-template">
 						<xsl:with-param name="array" select="($geometry/pair[@name='features']/item/pair[@name='geometry'])[1]/pair[@name='coordinates']"/>
 					</xsl:call-template>
 				</xsl:when>
@@ -453,29 +470,88 @@
 				</xsl:otherwise>
 				</xsl:choose>
 			</xsl:when>
+			<xsl:when test="boolean($geometry) = false()">
+				L.marker([<xsl:value-of select="$linkgrp/../tei:location/tei:geo/text()"/>]
+			</xsl:when>
 			<xsl:when test="boolean($geometry/pair[@name='reprPoint']/*)">
 				<xsl:call-template name="placeholder-coord">
 						<xsl:with-param name="array" select="$geometry/pair[@name='reprPoint']"/>
 					</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:text>37.3920222,25.2702389</xsl:text>
+				<xsl:text>L.marker([37.3920222,25.2702389]</xsl:text> <!--Updated 12/8/23 because we no longer add the marker in higher templates, now that the switching between polygons/lines feature is implemented-->
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template name="point-template">
 		<!--Used if the given coordinates are a single point-->
-		<xsl:param name="array"/><!-- The array containing the coordinates-->
-		<xsl:value-of select="concat($array/*[2]/text(), ', ',$array/*[1]/text())"/>
+    <xsl:param name="array"/><!-- The array containing the coordinates-->
+		L.marker([
+		<xsl:value-of select="concat($array/*[2]/text(), ', ',$array/*[1]/text())"/>]
 			
 	</xsl:template>
+	
+	<xsl:template name="polygon-template">
+		<xsl:param name="array"/>
+		
+		L.polygon([<xsl:call-template name="multipoint-template">
+				<xsl:with-param name="array" select="$array/item"/>
+			</xsl:call-template>]
+	</xsl:template>
+	
+	
+	
+	<xsl:template name="linestr-template">
+		<xsl:param name="array"/>
+		L.polyline([
+			<xsl:call-template name="multipoint-template">
+				<xsl:with-param name="array" select="$array"/>
+			</xsl:call-template>]
+	</xsl:template>
+	
+	<xsl:template name="multipoint-template">
+		<xsl:param name="array"/>
+		<xsl:for-each select="$array/item">
+			[<xsl:value-of select="./item[2]/text()"/>,<xsl:value-of select="./item[1]/text()"/>]
+			<xsl:choose>
+				<xsl:when test="position() &lt; count($array/item)">,</xsl:when>
+				<xsl:otherwise></xsl:otherwise>
+			</xsl:choose>
+			</xsl:for-each>
+	</xsl:template>
+	
+	
 	
 	<xsl:template name="placeholder-coord">
 		<xsl:param name="array"/>
 		<!--Since I have not figured out every shape yet, we can get the representative point if we need to-->
+		L.marker([<xsl:value-of select="concat($array/item[2]/text(), ',', $array/item[1]/text())"/>]
+	</xsl:template>
+	
+	<xsl:template name="bare-point">
+		<!-- Accepts the reprPoint pair (or another parent of coordinate data), and returns only the point-->
+		<xsl:param name="array"/>
+		
 		<xsl:value-of select="concat($array/item[2]/text(), ',', $array/item[1]/text())"/>
 	</xsl:template>
+	
+	<xsl:template name="multilinestr-template">
+		<!--As a multiline, this has a series of item elements whose @type is 'array and each of those has two items whose @type is 'number'-->
+		<xsl:param name="array"/>
+		L.polyline([
+		<xsl:for-each select="$array/item">
+			[<xsl:call-template name="multipoint-template">
+				<xsl:with-param name="array" select="."/>
+			</xsl:call-template>]
+			<xsl:choose>
+				<xsl:when test="position() &lt; count($array/item)">,</xsl:when>
+				<xsl:otherwise></xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>]
+	</xsl:template>
+	
+	
 	
 	<xsl:template name="full-map-point">
 		<xsl:param name="geo"/>
