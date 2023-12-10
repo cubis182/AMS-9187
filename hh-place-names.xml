@@ -13,8 +13,10 @@
 				</author>
 			</titleStmt>
 			<publicationStmt>
-            
-         </publicationStmt>
+				<p>
+				
+				</p>
+			</publicationStmt>
 			<sourceDesc>
 				<bibl>
 					<note>Born Digital</note>
@@ -25,70 +27,20 @@
 	<text>
 		<body>
 			<div>
-			Welcome to the Homeric Hymn to Hermes! If you hover over the indicated spots, a map should show up if there is data available. Make sure to hover for more than a moment: the map can take a second to load.
+			<p>This site contains texts of the (complete) long Homeric Hymns (2-5) accompanied by maps which show where the action moves throughout the hymns. The Homeric Hymns each have their own ties to specific places. Many of these places are connected with the deity because of cult worship at the site. The Homeric Hymn to Demeter narrates the abduction of Persephone by Hades and Demeter's own ensuing interactions with the Eleusinians and Olympians to secure her daughter's safe return. The actions she takes at Eleusis serve as an aetiology for her worship there. In the Hymn to Apollo, Apollo is lauded not for a specific place he is worshipped but for the fact you can hardly find a place he is not worshipped. The first section of the hymn follows Leto as she attempts to find a safe place to give birth to Apollo: she travels through mainland Greece, the Aegean islands, Thrace, the coast of Anatolia and the Cyclades before ending at Delos, all regions where worship of Apollo will take hold. When Apollo searches for a place to establish his oracle, the journey is equally comprehensive, emphasizing the scope of the god's domain. Even the first priests at Delphi (although never mentioned by this name in the hymn) are travelers, "merchants" from Crete. The fact that both Delos and Delphi are established as seats of power in one hymn demonstrates the scope of Apollo's power. In the hymn to Hermes, no cults are established, but that does not mean this hymn is not an aetiology. In this hymn, Hermes, at one day old, becomes ravenous for beef and steals and slaughters some of Apollo's cattle. At the end, though, he leaves the beef as an offering and refuses to eat it. Why a god, who does not need to eat, would get hungry, and why a baby god, who should not be hungry for solid food, would be hungry for beef, and why a baby god who is hungry for beef would then still not eat it after acquiring it is a topic for another discussion. Some scholars have suggested that this references the custom in which athletes attending the Olympic games, quite close to where Hermes hides the cattle, were required to abstain from meat 30 days before competing. The skins of the slaughtered cows also were petrified and turned into a rock formation, offering an explanation for stalactites in the cave where he slaughtered them. Admittedly, there is no cult established in Aphrodite, but the fact this hymn does not unequivocably praise the goddess makes it work differently than the other poems.
+			
+			These hymns are both limited and freed in their relationship to geography. In some ways they are limited by geography to certain key locations which it is beneficial to have a visual for. Delos is at the center of a spiral which starts from Crete; it is the center of the spiralling Cyclades but also her own tired journey through the entire Greek world. The proximity of Pieria to Olympus makes it clear in the hymn to Hermes why Apollo would keep his cattle there, and the distance of the final hiding-spot of the cattle from Hermes' home makes it clear how well he has hidden it. In other respects the hymns are very expansive. The hymnist does not always reference places they are familiar with (Apollo's journey to Telphousa's spring at Haliartos is not particularly odd), but references locations all around the eastern Mediterranean. Gods travel at speeds impossible for humans: Hermes travels from the Peloponnese to northern Greece and back in a single day. These hymns simulataneously emphasize certain locations, but relish in reminding us that there is a broader mythological world the gods are free to wander in a manner impossible for humans. They emphasize that these gods - and the hymn itself - deserve Panhellenic praise. This project serves to highlight those efforts. 
+			
+			When Hermes picks up the lyre and sang "like youths bandy taunts," it echoes the acerbic poems that young men recite at each other in festivals like the Hermaia, which celebrate males' coming of age. Hermes' own growth is emphasized in this hymn: he proves his mastery over the lyre at one day of age! The Hermaia is also a Panhellenic festival. Panhellenic refers to a custom which is recognized by all Greeks. It may be a festival, or even a version of a story. These hymns often include elements which encourage
 			
 			Instructions:
+			This map was only tested on Google Chrome, although it should also work on Safari or Firefox. On Android, you can tap on the maps to reveal them. This feature does not work on iPhone: currently, I would recommend using a different device in that case. 
 			
-			I would encourage you to use Google Chrome, as that is how I tested the software.
-		</div>
+			Click on a text to see the English edition of the hymn. Each text is accompanied by maps one the right side which show the location(s) currently being visited in that segment of the hymn. Click on the marker or highlighted region for more information on that location. A complete map is provided at the end of the text.
+			</p>
+			</div>
+			<div>
 			<listPlace>
-			
-			</listPlace>
-			<listPlace>
-				<!-- Because of the way I am currently implementing it, every line needs a space attribute, so there can be an empty place node for before and after the action goes
-			
-			
-			Rules:
-			The order of appearance of places in the hymns needs to be marked with @n. Additionally, no line can go unmarked, as the XSLT is now: you need to give empty place names for this stuff.
-			
-			Multiple places in one line/group:
-			In this case, the first location mentioned in said section takes on the next @n section number, without any suffix. Every subsequent location adds a decimal and starts at 2, so 19, then 19.2, 19.3, etc. Over 10, it still continues, so 2.9 to 2.10, then 2.11, etc.
-			
-			The secondary placeName is usually one that is more descriptive of what the Pleiades data represents
-			
-			Remember to escape quotes in <desc></desc>!
-			
-			The line numbers currently stay the same. Maybe later I will change that to a reference.
-			
-			TO-DO:
-			-Change the @corresp on the place elements below to reference a list of the sources in another TEI doc
-			-SOLVED Fix having html in your TEI document
-			
-			
-			Empty linkGrp:
-			
-			<linkGrp n="" corresp="">
-				<ptr xml:lang="grc" type="start-before" target=""/>
-				<ptr xml:lang="grc" type="end-after" target=""/>
-				<ptr xml:lang="eng" type="start-before" target=""/>
-				<ptr xml:lang="eng" type="end-after" target=""/>
-			</linkGrp>
-			
-			Empty Demeter:
-			<linkGrp n="" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
-				<ptr xml:lang="grc" type="start-before" target=""/>
-				<ptr xml:lang="grc" type="end-after" target=""/>
-				<ptr xml:lang="eng" type="start-before" target=""/>
-				<ptr xml:lang="eng" type="end-after" target=""/>
-			</linkGrp>
-			
-			Empty Aphrodite:
-			<linkGrp n="" corresp="./Perseus-DL/tlg0013/tlg005/tlg0013.tlg005.perseus-grc2.xml">
-				<ptr xml:lang="grc" type="start-before" target=""/>
-				<ptr xml:lang="grc" type="end-after" target=""/>
-				<ptr xml:lang="eng" type="start-before" target=""/>
-				<ptr xml:lang="eng" type="end-after" target=""/>
-			</linkGrp>
-			
-			Apollo:
-			<linkGrp n="" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
-				<ptr xml:lang="grc" type="start-before" target=""/>
-				<ptr xml:lang="grc" type="end-after" target=""/>
-				<ptr xml:lang="eng" type="start-before" target=""/>
-				<ptr xml:lang="eng" type="end-after" target=""/>
-			</linkGrp>
-			-->
-			
 				<place>
 					<!-- See https://tei-c.org/release/doc/tei-p5-doc/en/html/ref-placeName.html on what geographic things the <location/> can contain-->
 					<placeName type="example">
@@ -392,6 +344,7 @@
 				<place>
 					<placeName type="primary">Aisagea</placeName>
 					<placeName type="short">aisag</placeName>
+					<desc>Location unknown, resorting to default</desc>
 					<!--No map data-->
 					<linkGrp n="4.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Full list: Klaros, Aisagea, Samos, Mykale, Miletos, Koos, Knidos, Karpathos, Naxos, Paros, Rhenaia-->
@@ -400,7 +353,7 @@
 						<ptr xml:lang="eng" type="start-before" target="40"/>
 						<ptr xml:lang="eng" type="end-after" target="40"/>
 					</linkGrp>
-					<desc>Location unknown, resorting to default</desc>
+					
 				</place>
 				<place>
 					<placeName type="primary">Samos</placeName>
@@ -569,6 +522,13 @@
 					</linkGrp>
 				</place>
 				<place>
+					<placeName type="primary">Maia's Cave</placeName>
+					<placeName type="short">maia</placeName>
+					<placeName type="secondary">Mt. Cyllene</placeName>
+					<location>
+						<geo source="570391">37.940, 22.397</geo>
+					</location>
+					<desc>I use the general location of Mt. Cyllene for Maia's cave here: this does not mean the point on the map here represents a supposed specific location of the cave.</desc>
 					<!-- Line 4-end of 69 (also, decided to do away with the xpointer scheme for now)-->
 					<linkGrp n="2" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="5"/>
@@ -589,13 +549,7 @@
 						<ptr xml:lang="eng" type="start-before" target="225"/>
 						<ptr xml:lang="eng" type="end-after" target="315"/>
 					</linkGrp>
-					<placeName type="primary">Maia's Cave</placeName>
-					<placeName type="short">maia</placeName>
-					<placeName type="secondary">Mt. Cyllene</placeName>
-					<location>
-						<geo source="570391">37.940, 22.397</geo>
-					</location>
-					<desc>I use the general location of Mt. Cyllene for Maia's cave here: this does not mean the point on the map here represents a supposed specific location of the cave.</desc>
+					
 				</place>
 				<place>
 					<placeName>Apollo's Cattle</placeName>
@@ -639,7 +593,7 @@
 					<location>
 						<geo source="1332"></geo>
 					</location>
-					<desc>According to the catalogue of ships (&lt;i&gt;Il.&lt;/i&gt; 2.749), the Enienes are ruled by Gouneus, and they live in Thessalian Dodona (as opposed to the Dodona Epirus). </desc>
+					<desc>According to the catalogue of ships (&lt;i&gt;Il.&lt;/i&gt; 2.749), the Enienes are ruled by Gouneus, and they live in Thessalian Dodona (as opposed to the Dodona in Epirus). The English translation here gives &lt;i&gt;Enienae&lt;/i&gt; as if it is from a first declension noun, but that is not possible for the edition of the Greek text used here: the circumflex accent indicates a short alpha in the ending and therefore a third declension noun. I am taking it here to refer to the people, the Ἐνιῆνες.</desc>
 					<linkGrp n="8.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Pieria, Lektos, Enienai, Perraiboi, Iolkus, Kenaios -->
 						<ptr xml:lang="grc" type="start-before" target="216"/>
@@ -694,9 +648,9 @@
 					<placeName type="primary">Lelantine Plain</placeName>
 					<placeName type="short">lela</placeName>
 					<location>
-						<geo source="540912">40.360, 22.487</geo>
+						<geo>38.414301, 23.672632</geo>
 					</location>
-					<desc>Using the location data for the Lelantus river; the default Pleiades location for the Lelantine plain is clearly inaccurate, it is not even on Euboia.</desc>
+					<desc>Using the approximate location from the print Barrington Atlas; the default Pleiades location for the Lelantine plain gives a whole region, but that region is much too large, also covering some of the mainland.</desc>
 					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Lelantine Plain, Euripos (river, I think, from where he goes up a mountain), Mykalessos, Teumessos -->
 						<ptr xml:lang="grc" type="start-before" target="220"/>
@@ -765,8 +719,9 @@
 				<place>
 					<placeName type="primary">Onchestos</placeName>
 					<placeName type="short">onchestos</placeName>
-					<geogFeat>plain</geogFeat>
+					
 					<location>
+						<geogFeat>plain</geogFeat>
 						<geo source="540984">38.373, 23.150</geo>
 					</location>
 					<linkGrp n="4" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
@@ -796,6 +751,7 @@
 					<location>
 						<geo source="540700">40.360, 22.487</geo>
 					</location>
+					<desc>There are some difficulties with the geography here. In ancient times there was a large inland lake called the Copais in Boeotia which Ocalea and Haliartos were right on the southern shore of. Where the river is on the map here is essentially the boundary of that lake. The Kephissos, then, deposited into the lake at the northwestern end and never gets close to this region. Additionally, Haliartos seems to come before Okaleia, considering Apollo is approaching from the east. See n. 240 on p. 98 of Allen and Sikes for a discussion of this. In the summers, this lake often turns into swampy land crossed by streams: it is possible that the Kephissos did get close at this time of year, but there is little way of knowing.\nAllen, Thomas W. (Thomas William), and E. E. (Edward Ernest) Sikes. &lt;i&gt;The Homeric Hymns&lt;/i&gt;. Edited, with Pref., Apparatus Criticus, Notes, and Appendices. London Macmillan, 1904. http://archive.org/details/homerichymnsedit00homeuoft.</desc>
 					<linkGrp n="12" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -811,6 +767,7 @@
 					<location>
 						<geo source="540915">40.360, 22.487</geo>
 					</location>
+					<desc>This is mentioned as the source of the Kephissos river: note how it is a little far from the source of the river as it is marked today.</desc>
 					<linkGrp n="12.2" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -825,6 +782,7 @@
 					<location>
 						<geo source="540978"></geo>
 					</location>
+					
 					<linkGrp n="12.3" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -839,6 +797,7 @@
 					<location>
 						<geo source="540801"></geo>
 					</location>
+					<desc>Telphousa's actual spring was likely not at this point exactly. Some have assigned it to a spring near the Tilphosaion (a fortified place) or another spring in the mountains to the west. See Fontenrose, Joseph. “The Spring Telphusa.” &lt;i&gt;Transactions and Proceedings of the American Philological Association&lt;/i&gt; 100 (1969): 119–31. https://doi.org/10.2307/2935905.</desc>
 					<linkGrp n="12.4" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains: Kephissos, Lilaia, Ocalea, Haliartos -->
 						<ptr xml:lang="grc" type="start-before" target="239"/>
@@ -883,15 +842,15 @@
 					<desc>Keep in mind that it is likely the ancient Alpheios did not have the same path as in modern times.</desc>
 					<placeName type="primary">Alpheios River</placeName>
 					<placeName type="short">alph</placeName>
+					<location>
+						<geo source="570067">37.515, 21.873</geo>
+					</location>
 					<linkGrp n="5" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="101"/>
 						<ptr xml:lang="grc" type="end-after" target="102"/>
 						<ptr xml:lang="eng" type="start-before" target="100"/>
 						<ptr xml:lang="eng" type="end-after" target="100"/>
 					</linkGrp>
-					<location>
-						<geo source="570067">37.515, 21.873</geo>
-					</location>
 					<!-- He just reaches the Alpheios-->
 				</place>
 				<place>
@@ -908,6 +867,12 @@
 					<placeName type="primary">Pylos</placeName>
 					<placeName type="short">pylos</placeName>
 					<placeName type="secondary">Tryphalia</placeName>
+					<location>
+						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location); Manto gives Tryphalian Pylos as the proper one
+						<geo source="573490">37.515, 21.873</geo>-->
+						<geo source="570754"></geo>
+					</location>
+					<desc>Since we do not really know where this Pylos is - for Nestor's Pylos is much further south - I am going with the note in the Barrington Atlas which suggests it is in Tryphalia, whose map data I am using here. That is the same thing as saying \"near the Alpheios\" like the hymn does, but using this region both expresses the uncertainty of its location and what area the hymnist was referring to more accurately. This is true for both the Hymn to Apollo and Hermes, where it is described as near the Alpheios.</desc>
 					<linkGrp n="9" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="215"/>
 						<ptr xml:lang="grc" type="end-after" target="227"/>
@@ -928,19 +893,12 @@
 						<ptr xml:lang="eng" type="start-before" target="420"/>
 						<ptr xml:lang="eng" type="end-after" target="420"/> <!-- WILL THIS WORK?-->
 					</linkGrp>
-					<location>
-						<!-- Pleiades gives this as an alternative to the more famous Pylos, worth looking into (correction, this currently just matches the Alpheios location); Manto gives Tryphalian Pylos as the proper one
-						<geo source="573490">37.515, 21.873</geo>-->
-						<geo source="570754"></geo>
-					</location>
-					<desc>Since we do not really know where this Pylos is - for Nestor's Pylos is much further south - I am going with the note in the Barrington Atlas which suggests it is in Tryphalia, whose map data I am using here. That is the same thing as saying \"near the Alpheios\" like the hymn does, but using this region both expresses the uncertainty of its location and what area the hymnist was referring to more accurately. This is true for both the Hymn to Apollo and Hermes, where it is described as near the Alpheios.</desc>
+					
 				</place>
 				<place>
 					<placeName type="primary">Krounoi</placeName> <!-- May be Krounoi?-->
 					<placeName type="short">kroun</placeName>
-					<location>
-						<!--<geo source="573314"></geo>-->
-					</location>
+					
 					<linkGrp n="20" corresp="./Perseus-DL/tlg0013/tlg003/tlg0013.tlg003.perseus-grc2.xml">
 						<!-- Contains Kpounoi, Khalkis, Dyme, Elis, Pherai, Ithaka, Doulikhios, Same, Zakynthos-->
 						<ptr xml:lang="grc" type="start-before" target="425"/>
@@ -1061,6 +1019,9 @@
 				<place>
 					<placeName type="primary">Mt. Olympos</placeName>
 					<placeName type="short">olymp</placeName>
+					<location>
+						<geo source="491677">40.09, 22.36</geo>
+					</location>
 					<linkGrp n="11" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="322"/>
 						<ptr xml:lang="grc" type="end-after" target="396"/>
@@ -1097,9 +1058,6 @@
 						<ptr xml:lang="eng" type="start-before" target="105"/>
 						<ptr xml:lang="eng" type="end-after" target="110"/>
 					</linkGrp>
-					<location>
-						<geo source="491677">40.09, 22.36</geo>
-					</location>
 				</place>
 				<place>
 					<placeName type="primary">Hades</placeName>
@@ -1113,7 +1071,11 @@
 				</place>
 				<place>
 					<placeName type="primary">Nysian Plain</placeName>
+					<location>
+						<geo source="59948"></geo>
+					</location>
 					<placeName type="short">nys</placeName>
+					<desc>As the LSJ entry describes, it is traditionally a location sacred to Dionysus (&lt;i&gt;h.Hom.&lt;/i&gt; 26.5 describes it as the place where Nymphs raised him, and &lt;i&gt;h.Hom.&lt;/i&gt; 1.8 locates it in Egypt). However, both those descriptions emphasize the fact it is a mountain, and here in the hymn it is a plain. A search in the abridged TLG finds no instances where πεδίον \"plain\" is used to refer to a plain at the base of a mountain specifically (in Herodotus 2.158 it seems incidental), although such a search by no means excludes this possibility. Apollonius of Rhodes refers to it both as a plain and mountain, but that could naturally be because of the already existing conflicting information (&lt;i&gt;Arg.&lt;/i&gt; 2.1214). I go with a central Asian location because distant locations in Ethiopia and Arabia are suggested as a possibility in Allen and Sikes (Hymn to Dionysus, note 8), and I do not have exact data on those suggested locations. The Barrington Atlas refers to 'Nysaioi' who leave near mountains in the location marked here.\nAllen, Thomas W. (Thomas William), and E. E. (Edward Ernest) Sikes. &lt;i&gt;The Homeric Hymns&lt;/i&gt;. Edited, with Pref., Apparatus Criticus, Notes, and Appendices. London Macmillan, 1904. http://archive.org/details/homerichymnsedit00homeuoft.</desc>
 				<linkGrp n="1" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="1"/>
 						<ptr xml:lang="grc" type="end-after" target="37"/>
@@ -1124,6 +1086,10 @@
 				<place>
 					<placeName type="primary">Helios</placeName>
 					<placeName type="short">hel</placeName>
+					<desc>Ov. &lt;i&gt;Met&lt;/i&gt; 1.777-78 suggests that Helios lives even past India; therefore, I picked Shanghai, since it is about as far east in that direction as you can go.</desc>
+					<location>
+						<geo>31.125313, 121.454620</geo>
+					</location>
 					<linkGrp n="3" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="62"/>
 						<ptr xml:lang="grc" type="end-after" target="89"/>
@@ -1134,7 +1100,9 @@
 				<place>
 					<placeName type="primary">Eleusis</placeName>
 					<placeName type="short">eleu</placeName>
-					
+					<location>
+						<geo source="579920"></geo>
+					</location>
 					<linkGrp n="4" corresp="./Perseus-DL/tlg0013/tlg002/tlg0013.tlg002.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="90"/>
 						<ptr xml:lang="grc" type="end-after" target="122"/>
@@ -1159,9 +1127,6 @@
 						<ptr xml:lang="eng" type="start-before" target="470"/>
 						<ptr xml:lang="eng" type="end-after" target="480"/>
 					</linkGrp>
-					<location>
-						<geo source="579920"></geo>
-					</location>
 				</place>
 				<place>
 					<placeName type="primary">Rharion Plain</placeName>
@@ -1336,6 +1301,7 @@
 					</linkGrp>
 				</place>
 			</listPlace>
+			</div>
 			
 			<!--
 		KEEPING THIS AS AN EXAMPLE

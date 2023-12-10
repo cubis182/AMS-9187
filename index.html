@@ -3,11 +3,56 @@
 		<title>Homeric Hymn Mapping Project</title>
 	</head>
 	<body>
-		<header>Welcome to the Homeric Hymn mapping project!</header>
-		<br/><p>For the quicker version of the site, see: <a href="./converted-site/menu.html">Homeric Hymn Express&trade;</a></p><br/>
-		<a href="hh4-map-edition-eng.xml">Hermes</a>
-		<a href="hh3-map-edition-eng.xml">Apollo</a>
-		<a href="hh2-map-edition-eng.xml">Demeter</a>
-		<a href="hh5-map-edition-eng.xml">Aphrodite</a>
+		<header><h1>Welcome to <em>Keryx</em>:</h1><h2>a multi-media text-encoding project.</h2></header>
+		
+		<p>This site contains texts of the (complete) long Homeric Hymns (2-5) accompanied by maps which show the locations visited in the hymns.</p>
+		
+		<br/><h2>Links to the hymns:</h2><br/>
+		The following links are to the fastest versions of the hymns (see the bottom of the page for the work in-progress):<br/><br/>
+		<a href="hh4-eng.html">Hymn 4 to Hermes</a>
+		<a href="hh3-eng.html">Hymn 3 to Apollo</a>
+		<a href="hh2-eng.html">Hymn 2 to Demeter</a>
+		<a href="hh5-eng.html">Hymn 5 to Aphrodite</a><br/><br/>
+		
+		Instructions:<br/>
+		<p>This map was only tested on Google Chrome, although it should also work on Safari or Firefox. On Android, you can tap on the maps to reveal them. This feature does not work on iPhone: currently, I would recommend using a different device in that case.</p>
+		
+		<p>Click on a text to see the English edition of the hymn. Each text is accompanied by maps one the right side which show the location(s) currently being visited in that segment of the hymn. Click on the marker or highlighted region for more information on that location. A complete map is provided at the end of the text.</p>
+		
+		
+		<p>The following links go to the versions of the hymns I am currently working on. Usually, both will be similar, but these will be much slower: there is not much reason to prefer them, but I make them accessible here.</p><br/>
+		<a href="hh4-map-edition-eng.xml">Hymn 4 to Hermes</a>
+		<a href="hh3-map-edition-eng.xml">Hymn 3 to Apollo</a>
+		<a href="hh2-map-edition-eng.xml">Hymn 2 to Demeter</a>
+		<a href="hh5-map-edition-eng.xml">Hymn 5 to Aphrodite</a><br/><br/>
+		
+		
+		<br>
+		Sources:
+		
+		Perseus Digital Library. Ed. Gregory R. Crane. Tufts University. http://www.perseus.tufts.edu (accessed September 18, 2023).
+		
+		<footer>
+		Texts are from the <a href="https://github.com/PerseusDL/canonical-greekLit">Perseus Digital Library repository</a>. Map data provided by OpenStreetMap and available under the <a href="https://www.openstreetmap.org/copyright">Open Database License</a>. Coordinate data provided by <a href="https://pleiades.stoa.org/credits">Pleiades</a>, copyright &copy; Ancient World Mapping Center and Institute for the Study of the Ancient World. And thanks to <a href="https://leafletjs.com/">LeafletJS</a>, the open-source JavaScript library which made the interactive maps in this project possible.
+		</footer>
+		<script type="module">
+		  // Import the functions you need from the SDKs you need
+		  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+		  // TODO: Add SDKs for Firebase products that you want to use
+		  // https://firebase.google.com/docs/web/setup#available-libraries
+
+		  // Your web app's Firebase configuration
+		  const firebaseConfig = {
+			apiKey: "AIzaSyAR_qPxP-wpgCq2k9-x4bywWs7Gk-1JrWc",
+			authDomain: "keryx-e819c.firebaseapp.com",
+			projectId: "keryx-e819c",
+			storageBucket: "keryx-e819c.appspot.com",
+			messagingSenderId: "469024315835",
+			appId: "1:469024315835:web:6cc669d9e972ab4b600c9e"
+		  };
+
+		  // Initialize Firebase
+		  const app = initializeApp(firebaseConfig);
+		</script>
 	</body>
 </html>

@@ -62,11 +62,13 @@
 			</style>
 </head>
 <header><h1>Hymn 2 To Demeter</h1>
-<br></header><a href="menu.html">Home</a><br><a href="hh2-eng.html">English
+<br></header><a href="index.html">Home</a><br><a href="hh2-eng.html">English
 			</a><br><p>
 		Welcome to the map of Hymn 2 To Demeter!
 		
-		This text is divided into <b>passages</b>. Each passage is accompanied by a map in the right column with each of the points (for which there is data) mapped out. Scroll all the way to the bottom for a comprehensive map of the hymn.
+		This text is divided into <b>passages</b>. Each passage is accompanied by a map in the right column with each of the points (for which there is data) mapped out. Scroll all the way to the bottom for a comprehensive map of the hymn.<br><br>
+		Not every location has descriptive material added to it. In this hymn, the passage-by-passage maps have descriptions for the following locations:<br>Nysian Plain<br>Helios<br>
+		Click on its marker/region to see it!
 		</p>
 <div>
 <div class="row">
@@ -83,11 +85,45 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
-<p>No map data available.</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
+<div id="nys1" style="width: 600px; height: 400px;"><script>
+			
+			const nys1 = L.map('nys1').setView([
+			34.42946725033793,70.32992385723406
+			], 8);
+
+			const tiles1 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				trackResize: true,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(nys1);
+			
+		const marker_nys1 = 
+		
+		L.polyline([
+		
+			[
+			[34.419883589599635,70.03501446344308]
+			,
+			[34.427021972617126,70.18492050681039]
+			,
+			[34.42345278110838,70.2563043369853]
+			,
+			[34.427021972617126,70.31341140112522]
+			,
+			[34.43416035563462,70.39193361431762]
+			,
+			[34.427021972617126,70.46331744449253]
+			,
+			[34.44129873865211,70.52756289164995]
+			,
+			[34.43772954714336,70.62393106238608]
+			]]
+	).addTo(nys1)
+		
+		
+		marker_nys1.bindPopup("Nysian Plain:<br><a href=\"https://pleiades.stoa.org/places/59948/batlas-map-label-location\" target=\"_blank\">Centerline/arc of label location used on the Barrington Atlas map for this feature</a><br>As the LSJ entry describes, it is traditionally a location sacred to Dionysus (<i>h.Hom.</i> 26.5 describes it as the place where Nymphs raised him, and <i>h.Hom.</i> 1.8 locates it in Egypt). However, both those descriptions emphasize the fact it is a mountain, and here in the hymn it is a plain. A search in the abridged TLG finds no instances where πεδίον \"plain\" is used to refer to a plain at the base of a mountain specifically (in Herodotus 2.158 it seems incidental), although such a search by no means excludes this possibility. Apollonius of Rhodes refers to it both as a plain and mountain, but that could naturally be because of the already existing conflicting information (<i>Arg.</i> 2.1214). I go with a central Asian location because distant locations in Ethiopia and Arabia are suggested as a possibility in Allen and Sikes (Hymn to Dionysus, note 8), and I do not have exact data on those suggested locations. The Barrington Atlas refers to 'Nysaioi' who leave near mountains in the location marked here.\nAllen, Thomas W. (Thomas William), and E. E. (Edward Ernest) Sikes. <i>The Homeric Hymns</i>. Edited, with Pref., Apparatus Criticus, Notes, and Appendices. London Macmillan, 1904. http://archive.org/details/homerichymnsedit00homeuoft.<br>").openPopup()
+	</script></div>
 <br><br>
 </div></div>
 <br>
@@ -112,10 +148,7 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <p>No map data available.</p>
 <br><br>
 </div></div>
@@ -137,11 +170,29 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
-<p>No map data available.</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
+<div id="hel3" style="width: 600px; height: 400px;"><script>
+			
+			const hel3 = L.map('hel3').setView([
+			
+					37.3920222,25.2702389
+				
+			], 8);
+
+			const tiles3 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 19,
+				trackResize: true,
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(hel3);
+			
+		const marker_hel3 = 
+		
+				L.marker([31.125313, 121.454620]
+			).addTo(hel3)
+		
+		
+		marker_hel3.bindPopup("Helios:<br><a href=\"\" target=\"_blank\"></a><br>Ov. <i>Met</i> 1.777-78 suggests that Helios lives even past India; therefore, I picked Shanghai, since it is about as far east in that direction as you can go.<br>").openPopup()
+	</script></div>
 <br><br>
 </div></div>
 <br>
@@ -160,15 +211,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="eleu4" style="width: 600px; height: 400px;"><script>
 			
 			const eleu4 = L.map('eleu4').setView([
-			38.041101, 23.537401
-			], 6);
+			38.041101,23.537401
+			], 8);
 
 			const tiles4 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -176,11 +224,15 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(eleu4);
 			
-		const marker_eleu4 = L.marker([
-		38.041101, 23.537401]).addTo(eleu4)
+		const marker_eleu4 = 
+		
+		L.marker([
+		38.041101, 23.537401]
+			
+	).addTo(eleu4)
 		
 		
-		marker_eleu4.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>")
+		marker_eleu4.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -196,17 +248,14 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="cret5" style="width: 600px; height: 400px;"><script>
 			
 			const cret5 = L.map('cret5').setView([
 			
 					37.3920222,25.2702389
 				
-			], 6);
+			], 8);
 
 			const tiles5 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -214,11 +263,13 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(cret5);
 			
-		const marker_cret5 = L.marker([
-		35.214932421268195,25.101517660292462]).addTo(cret5)
+		const marker_cret5 = 
+		
+		L.marker([35.214932421268195,25.101517660292462]
+	).addTo(cret5)
 		
 		
-		marker_cret5.bindPopup("Crete:<br><a href=\"\" target=\"_blank\"></a><br><br>")
+		marker_cret5.bindPopup("Crete:<br><a href=\"\" target=\"_blank\"></a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -234,15 +285,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="thor6" style="width: 600px; height: 400px;"><script>
 			
 			const thor6 = L.map('thor6').setView([
-			37.732932, 24.04939
-			], 6);
+			37.735400999999996,24.051512
+			], 8);
 
 			const tiles6 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -250,11 +298,15 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(thor6);
 			
-		const marker_thor6 = L.marker([
-		37.732932, 24.04939]).addTo(thor6)
+		const marker_thor6 = 
+		
+		L.marker([
+		37.732932, 24.04939]
+			
+	).addTo(thor6)
 		
 		
-		marker_thor6.bindPopup("Thorikos:<br><a href=\"https://pleiades.stoa.org/places/580119/darmc-location-24223\" target=\"_blank\">1:1 million scale representative point location digitized from the Barrington Atlas of the Greek and Roman World by the Digital Atlas of Roman and Medieval Civilizations project at Harvard University.</a><br><br>")
+		marker_thor6.bindPopup("Thorikos:<br><a href=\"https://pleiades.stoa.org/places/580119/darmc-location-24223\" target=\"_blank\">1:1 million scale representative point location digitized from the Barrington Atlas of the Greek and Roman World by the Digital Atlas of Roman and Medieval Civilizations project at Harvard University.</a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -296,15 +348,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="eleu7" style="width: 600px; height: 400px;"><script>
 			
 			const eleu7 = L.map('eleu7').setView([
-			38.041101, 23.537401
-			], 6);
+			38.041101,23.537401
+			], 8);
 
 			const tiles7 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -312,11 +361,15 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(eleu7);
 			
-		const marker_eleu7 = L.marker([
-		38.041101, 23.537401]).addTo(eleu7)
+		const marker_eleu7 = 
+		
+		L.marker([
+		38.041101, 23.537401]
+			
+	).addTo(eleu7)
 		
 		
-		marker_eleu7.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>")
+		marker_eleu7.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -334,15 +387,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="olymp8" style="width: 600px; height: 400px;"><script>
 			
 			const olymp8 = L.map('olymp8').setView([
-			40.085556, 22.358611
-			], 6);
+			40.085556,22.358611
+			], 8);
 
 			const tiles8 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -350,11 +400,15 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(olymp8);
 			
-		const marker_olymp8 = L.marker([
-		40.085556, 22.358611]).addTo(olymp8)
+		const marker_olymp8 = 
+		
+		L.marker([
+		40.085556, 22.358611]
+			
+	).addTo(olymp8)
 		
 		
-		marker_olymp8.bindPopup("Mt. Olympos:<br><a href=\"https://pleiades.stoa.org/places/491677/location-of-olympus-m\" target=\"_blank\">Coordinates after GeoHack.</a><br><br>")
+		marker_olymp8.bindPopup("Mt. Olympos:<br><a href=\"https://pleiades.stoa.org/places/491677/location-of-olympus-m\" target=\"_blank\">Coordinates after GeoHack.</a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -370,10 +424,7 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <p>No map data available.</p>
 <br><br>
 </div></div>
@@ -393,15 +444,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="eleu10" style="width: 600px; height: 400px;"><script>
 			
 			const eleu10 = L.map('eleu10').setView([
-			38.041101, 23.537401
-			], 6);
+			38.041101,23.537401
+			], 8);
 
 			const tiles10 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -409,11 +457,15 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(eleu10);
 			
-		const marker_eleu10 = L.marker([
-		38.041101, 23.537401]).addTo(eleu10)
+		const marker_eleu10 = 
+		
+		L.marker([
+		38.041101, 23.537401]
+			
+	).addTo(eleu10)
 		
 		
-		marker_eleu10.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>")
+		marker_eleu10.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -435,15 +487,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="rhar11" style="width: 600px; height: 400px;"><script>
 			
 			const rhar11 = L.map('rhar11').setView([
 			38.041101,23.537401
-			], 6);
+			], 8);
 
 			const tiles11 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -451,11 +500,13 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(rhar11);
 			
-		const marker_rhar11 = L.marker([
-		38.041101,23.537401]).addTo(rhar11)
+		const marker_rhar11 = 
+		
+		L.marker([38.041101,23.537401]
+	).addTo(rhar11)
 		
 		
-		marker_rhar11.bindPopup("Rharion Plain:<br><a href=\"https://pleiades.stoa.org/places/585954/batlas-location\" target=\"_blank\"></a><br><br>")
+		marker_rhar11.bindPopup("Rharion Plain:<br><a href=\"https://pleiades.stoa.org/places/585954/batlas-location\" target=\"_blank\"></a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -475,15 +526,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="eleu12" style="width: 600px; height: 400px;"><script>
 			
 			const eleu12 = L.map('eleu12').setView([
-			38.041101, 23.537401
-			], 6);
+			38.041101,23.537401
+			], 8);
 
 			const tiles12 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -491,11 +539,15 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(eleu12);
 			
-		const marker_eleu12 = L.marker([
-		38.041101, 23.537401]).addTo(eleu12)
+		const marker_eleu12 = 
+		
+		L.marker([
+		38.041101, 23.537401]
+			
+	).addTo(eleu12)
 		
 		
-		marker_eleu12.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>")
+		marker_eleu12.bindPopup("Eleusis:<br><a href=\"https://pleiades.stoa.org/places/579920/dare-location\" target=\"_blank\">Representative point location, site precision</a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -513,15 +565,12 @@
 <div class="reveal"><b>-&gt;Hover over me&lt;- </b></div>
 <div type="map-container"><div type="map">
 <p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
-<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
-				</p>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b></p>
 <div id="olymp13" style="width: 600px; height: 400px;"><script>
 			
 			const olymp13 = L.map('olymp13').setView([
-			40.085556, 22.358611
-			], 6);
+			40.085556,22.358611
+			], 8);
 
 			const tiles13 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -529,11 +578,15 @@
 				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 			}).addTo(olymp13);
 			
-		const marker_olymp13 = L.marker([
-		40.085556, 22.358611]).addTo(olymp13)
+		const marker_olymp13 = 
+		
+		L.marker([
+		40.085556, 22.358611]
+			
+	).addTo(olymp13)
 		
 		
-		marker_olymp13.bindPopup("Mt. Olympos:<br><a href=\"https://pleiades.stoa.org/places/491677/location-of-olympus-m\" target=\"_blank\">Coordinates after GeoHack.</a><br><br>")
+		marker_olymp13.bindPopup("Mt. Olympos:<br><a href=\"https://pleiades.stoa.org/places/491677/location-of-olympus-m\" target=\"_blank\">Coordinates after GeoHack.</a><br><br>").openPopup()
 	</script></div>
 <br><br>
 </div></div>
@@ -560,6 +613,12 @@
 							
 								
 									
+									[34.42946725033793,70.32992385723406],
+								
+									
+									[31.125313, 121.454620],
+								
+									
 									[38.041101,23.537401],
 								
 									
@@ -580,27 +639,37 @@
 						
 								const marker_olymp = L.marker([40.085556,22.358611]).addTo(map);
 								
-								marker_olymp.bindPopup("Mt. Olympos:<br>Lines: 313-338<br>Lines: 483-494<br>").openPopup();
+								marker_olymp.bindPopup("Mt. Olympos:<br>Lines: 313-339<br>Lines: 483-end<br>").openPopup();
+								
+								const marker_nys = L.marker([34.42946725033793,70.32992385723406]).addTo(map);
+								
+								marker_nys.bindPopup("Nysian Plain:<br>Lines: 1-37<br>").openPopup();
+								
+								const marker_hel = L.marker([31.125313, 121.454620]).addTo(map);
+								
+								marker_hel.bindPopup("Helios:<br>Lines: 62-89<br>").openPopup();
 								
 								const marker_eleu = L.marker([38.041101,23.537401]).addTo(map);
 								
-								marker_eleu.bindPopup("Eleusis:<br>Lines: 90-121<br>Lines: 133-311<br>Lines: 384-446<br>Lines: 449-481<br>").openPopup();
+								marker_eleu.bindPopup("Eleusis:<br>Lines: 90-122<br>Lines: 133-312<br>Lines: 384-447<br>Lines: 449-482<br>").openPopup();
 								
 								const marker_rhar = L.marker([38.041101,23.537401]).addTo(map);
 								
-								marker_rhar.bindPopup("Rharion Plain:<br>Lines: 448-471<br>").openPopup();
+								marker_rhar.bindPopup("Rharion Plain:<br>Lines: 448-472<br>").openPopup();
 								
 								const marker_cret = L.marker([35.214932421268195,25.101517660292462]).addTo(map);
 								
-								marker_cret.bindPopup("Crete:<br>Lines: 123-124<br>").openPopup();
+								marker_cret.bindPopup("Crete:<br>Lines: 123-125<br>").openPopup();
 								
 								const marker_thor = L.marker([37.735400999999996,24.051512]).addTo(map);
 								
-								marker_thor.bindPopup("Thorikos:<br>Lines: 126-131<br>").openPopup();
+								marker_thor.bindPopup("Thorikos:<br>Lines: 126-132<br>").openPopup();
 								</script></div>
 <footer>
 				Edition: The Homeric Hymns and Homerica with an English Translation by Hugh G. Evelyn-White.
             Homeric Hymns<br>Cambridge, MA.,Harvard University Press; London, William Heinemann
-            Ltd., 1914</footer>
+            Ltd., 1914<br>
+				Texts are from the <a href="https://github.com/PerseusDL/canonical-greekLit">Perseus Digital Library repository</a>. Map data provided by OpenStreetMap and available under the <a href="https://www.openstreetmap.org/copyright">Open Database License</a>. Coordinate data provided by <a href="https://pleiades.stoa.org/credits">Pleiades</a> copyright © Ancient World Mapping Center and Institute for the Study of the Ancient World. And thanks to <a href="https://leafletjs.com/">LeafletJS</a>, the open-source JavaScript library which made the interactive maps in this project possible.
+			</footer>
 </div>
 </html>

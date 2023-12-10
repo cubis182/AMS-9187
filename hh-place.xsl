@@ -148,7 +148,12 @@
 		<p>
 		Welcome to the map of <xsl:call-template name="doc-title"><xsl:with-param name="hh4" select="$hh4"/></xsl:call-template>!
 		
-		This text is divided into <b>passages</b>. Each passage is accompanied by a map in the right column with each of the points (for which there is data) mapped out. Scroll all the way to the bottom for a comprehensive map of the hymn.
+		This text is divided into <b>passages</b>. Each passage is accompanied by a map in the right column with each of the points (for which there is data) mapped out. Scroll all the way to the bottom for a comprehensive map of the hymn.<br/><br/>
+		Not every location has descriptive material added to it. In this hymn, the passage-by-passage maps have descriptions for the following locations:<br/>
+		<xsl:for-each select="document($placeography)//tei:place[boolean(./tei:linkGrp[substring-before(@corresp, 'perseus-') = substring-before($hh4, 'perseus-')]) and boolean(./tei:desc)]">
+		<xsl:value-of select="./tei:placeName[@type='primary']"/><br/>
+		</xsl:for-each>
+		Click on its marker/region to see it!
 		</p>
 		
 		<div>
@@ -232,7 +237,8 @@
 			 
 			<footer>
 				Edition: <xsl:value-of select="document($hh4)//tei:sourceDesc/tei:bibl/tei:title"/><br/>
-				<xsl:value-of select="document($hh4)//tei:sourceDesc/tei:bibl/tei:publisher"/>, <xsl:value-of select="document($hh4)//tei:sourceDesc/tei:bibl/tei:date"/>
+				<xsl:value-of select="document($hh4)//tei:sourceDesc/tei:bibl/tei:publisher"/>, <xsl:value-of select="document($hh4)//tei:sourceDesc/tei:bibl/tei:date"/><br/>
+				Texts are from the <a href="https://github.com/PerseusDL/canonical-greekLit">Perseus Digital Library repository</a>. Map data provided by OpenStreetMap and available under the <a href="https://www.openstreetmap.org/copyright">Open Database License</a>. Coordinate data provided by <a href="https://pleiades.stoa.org/credits">Pleiades</a> copyright © Ancient World Mapping Center and Institute for the Study of the Ancient World. And thanks to <a href="https://leafletjs.com/">LeafletJS</a>, the open-source JavaScript library which made the interactive maps in this project possible.
 			</footer>
 		</div>
 	</html>
@@ -252,10 +258,7 @@
 			
 			<div type="map">
 				<p>
-				See all the mapped locations in the passage below. Click on a location for information about the source or a description of why I chose to put the location in its spot. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b>
-				</p>
-				<p>
-				Another feature in progress is polygons/highlighted regions. Pleiades, the source for the positional data, also stores locations as series of points for highlighting features like rivers and islands. As my implemenetation of this is in progress, I use single points to reference complex locations: often these points are representative of a larger region or features. Pleiades calls the points I use in these cases the <b>representative point</b>. For a description of some of these different types of region, and how the representative point works, see <a href="https://pleiades.stoa.org/help/get-coordinates/?searchterm=%22representative%20point%22#:~:text=For%20each%20Pleiades%20place%20resource,with%20a%20distinctive%20orange%20circle." target="_blank">this page</a>.
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description. This is a work in progress: not all my notes are included and some data is missing. <b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b>
 				</p>
 				<xsl:choose>
 					<xsl:when test="boolean($linkgrp/../tei:location)">
@@ -318,7 +321,7 @@
 					37.3920222,25.2702389
 				</xsl:otherwise>
 			</xsl:choose>
-			<![CDATA[], 6);
+			<![CDATA[], 8);
 
 			const ]]><xsl:value-of select="concat('tiles', string($passage))"/><![CDATA[ = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 				maxZoom: 19,
@@ -334,7 +337,8 @@
 					<xsl:with-param name="placename" select="$placename"/>
 					<xsl:with-param name="map-name" select="concat(string($placename), string($passage))"/>
 			</xsl:call-template>
-			<xsl:for-each select="$linkgrp/../../tei:place/tei:linkGrp[@corresp=$linkgrp/@corresp and contains(string(@n), '.') and string($linkgrp/@n) = substring-before(string(@n), '.')]">
+			<!-- 12/9/2023: now checks for whether there is geo info; don't know how that took so long-->
+			<xsl:for-each select="$linkgrp/../../tei:place/tei:linkGrp[@corresp=$linkgrp/@corresp and contains(string(@n), '.') and string($linkgrp/@n) = substring-before(string(@n), '.') and boolean(./../tei:location/tei:geo/@source)]">
 				<xsl:call-template name="retrieve-pleiades">
 					<xsl:with-param name="id" select="./../tei:location/tei:geo/@source"/>
 					<xsl:with-param name="linkgrp" select="."/>
@@ -373,12 +377,12 @@
 						}).addTo(map);
 						// create a red polyline from an array of LatLng points
 						const latlngs = [
-							]]><xsl:for-each select="document($placeography)//tei:place[substring(string(./tei:linkGrp/@corresp), 1, 42)=substring($hh4, 1, 42) and boolean(./tei:location/tei:geo/@source)]">
+							]]><xsl:for-each select="document($placeography)//tei:place[substring(string(./tei:linkGrp/@corresp), 1, 42)=substring($hh4, 1, 42) and boolean(./tei:location/tei:geo)]">
 								
 									
-									[<xsl:call-template name="full-map-point">
+									[<xsl:choose><xsl:when test="boolean(./tei:location/tei:geo/@source)"><xsl:call-template name="full-map-point">
 										<xsl:with-param name="geo" select="string(./tei:location/tei:geo/@source)"/>
-									</xsl:call-template>]<xsl:if test="position() &lt; count(document($placeography)//tei:place[substring(string(./tei:linkGrp/@corresp), 1, 42)=substring($hh4, 1, 42) and boolean(./tei:location/tei:geo/@source)])">,</xsl:if><!-- YOU CHEATED HERE! FIX THIS LATER, OR ADD A # OF LOCATIONS FIELD-->
+									</xsl:call-template></xsl:when><xsl:otherwise><xsl:value-of select="./tei:location/tei:geo/text()"/></xsl:otherwise></xsl:choose>]<xsl:if test="position() &lt; count(document($placeography)//tei:place[substring(string(./tei:linkGrp/@corresp), 1, 42)=substring($hh4, 1, 42) and boolean(./tei:location/tei:geo)])">,</xsl:if><!-- YOU CHEATED HERE! FIX THIS LATER, OR ADD A # OF LOCATIONS FIELD-->
 								
 							</xsl:for-each> <![CDATA[
 						];
@@ -388,27 +392,51 @@
 						// zoom the map to the polyline
 						map.fitBounds(polyline.getBounds());
 						
-						]]><xsl:for-each select="document($placeography)//tei:place[count(./tei:linkGrp[substring(string(@corresp), 1, 42)=substring($hh4, 1, 42)]) &gt; 0 and boolean(./tei:location/tei:geo/@source)]">
+						]]><xsl:for-each select="document($placeography)//tei:place[count(./tei:linkGrp[substring(string(@corresp), 1, 42)=substring($hh4, 1, 42)]) &gt; 0 and boolean(./tei:location/tei:geo)]">
 								<!--NO longer necessary, I don't sort the big map <xsl:sort select="./@n" data-type="number"/>-->
-								const marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/> = L.marker([<xsl:call-template name="full-map-point"><xsl:with-param name="geo" select="string(./tei:location/tei:geo/@source)"/></xsl:call-template>]).addTo(map);
+								const marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/> = L.marker([<xsl:choose><xsl:when test="boolean(./tei:location/tei:geo/@source)"><xsl:call-template name="full-map-point"><xsl:with-param name="geo" select="string(./tei:location/tei:geo/@source)"/></xsl:call-template></xsl:when><xsl:otherwise><xsl:value-of select="./tei:location/tei:geo/text()"/></xsl:otherwise></xsl:choose>]).addTo(map);
 								
 								marker_<xsl:value-of select="./tei:placeName[@type='short']/text()"/>.bindPopup(&quot;<xsl:value-of select="./tei:placeName[@type='primary']"/>&#58;<br/>
 								<xsl:for-each select="./tei:linkGrp[substring(string(@corresp), 1, 42)=substring($hh4, 1, 42)]">
 									<xsl:sort select="@n" data-type="number"/>
-									<xsl:text>Lines: </xsl:text>									
+									<xsl:text>Lines: </xsl:text>
+									<!--This is where the line numbers are added-->
 									<xsl:value-of select="string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target)"/>
 									
 									<!--It is awkward to have something like 'Lines 101-101', so this checks to avoid that-->
-									<xsl:if test="(number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target) - number(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='start-before']/@target)) &gt; 1">
-										<xsl:text>-</xsl:text>	
-										<xsl:value-of select="number(string(./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang and @type='end-after']/@target)) - 1"/>
-									</xsl:if>
+									<xsl:call-template name="line-number-b">
+										<xsl:with-param name="range-seq" select="./tei:ptr[@xml:lang=document($hh4)//tei:div[1]/@xml:lang]"/>
+										<xsl:with-param name="hh4" select="$hh4"/>
+									</xsl:call-template>
 									<!--@xml:lang=document($hh4)//tei:div[1]/@xml:lang--><br/>
 								</xsl:for-each>&quot;).openPopup();
 								</xsl:for-each><![CDATA[
 					]]>
 				</script>
 			 </xsl:element>
+	</xsl:template>
+	
+	<xsl:template name="line-number-b"><!--Decides what the second number in the line range for the 'full-map' should be; since line ranges vary between translations and the range may be one line, this is not entirely trivial.-->
+		<xsl:param name="range-seq"/> <!--Contains both ptr elements which have the 'start-before' and 'end-after' values-->
+		<xsl:param name="hh4"/>
+		
+		<!--First, we test if there is a range of values by looking at the distance from one -->
+		<xsl:choose>
+			<xsl:when test="(number(document($hh4)//tei:l[@n=$range-seq[@type='end-after']/@target]/following-sibling::tei:l/@n) - number($range-seq[@type='start-before']/@target)) &gt; 1"> 
+				<xsl:text>-</xsl:text>	
+				<xsl:choose>
+					<xsl:when test="boolean(document($hh4)//tei:l[@n=$range-seq[@type='end-after']/@target]/following-sibling::tei:l)">
+						<xsl:value-of select="number(document($hh4)//tei:l[@n=$range-seq[@type='end-after']/@target]/following-sibling::tei:l/@n) - 1"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="number($range-seq[@type='end-after']/@target)"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:when>
+			<!--Otherwise, if there is no following sibling, it must be the end of the poem, so just put '-end' in-->
+			<xsl:when test="boolean(document($hh4)//tei:l[@n=$range-seq[@type='end-after']/@target]/following-sibling::tei:l) = false()">-end</xsl:when>
+			<xsl:otherwise></xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template name="retrieve-pleiades">
@@ -430,7 +458,7 @@
 		</xsl:call-template><![CDATA[).addTo(]]><xsl:value-of select="$map-name"/><![CDATA[)]]>
 		
 		<!--The following binds a popup to the marker which has the Pleiades URL (the one ending in pair[@name='link']/text()) and the other the description of the source (the one ending in pair[@name='description']/text()). It also adds a description from the hh-place-names.xml document, if one is available-->
-		marker_<xsl:value-of select="concat(string($placename), string($passage))"/>.bindPopup(&quot;<xsl:value-of select="./../tei:placeName[@type='primary']/text()"/>:<br/><![CDATA[<a href=\"]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='link']/text()"/><![CDATA[\" target=\"_blank\">]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='description']/text()"/><![CDATA[</a>]]><br/><xsl:value-of select="$linkgrp/../tei:desc/text()"/><br/>&quot;)
+		marker_<xsl:value-of select="concat(string($placename), string($passage))"/>.bindPopup(&quot;<xsl:value-of select="./../tei:placeName[@type='primary']/text()"/>:<br/><![CDATA[<a href=\"]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='link']/text()"/><![CDATA[\" target=\"_blank\">]]><xsl:value-of select="$pleiades[boolean(./pair[text() = string($id)])]/pair[@name='features']/item/pair[@name='properties']/pair[@name='description']/text()"/><![CDATA[</a>]]><br/><xsl:value-of select="$linkgrp/../tei:desc/text()"/><br/>&quot;).openPopup()
 	</xsl:template>		
 	
 	<xsl:template name="choose-points">
