@@ -6,7 +6,7 @@
 	<teiHeader>
 		<fileDesc>
 			<titleStmt>
-				<title>DHSI 2023 Text Encoding Fundamentals - Personography Template</title>
+				<title>Keryx Placeography (2023)</title>
 				<author>
 					<!-- Keeping as an example <persName ref="yourPersonography.xml#c_crompton">Connie Crompton</persName> -->
 					<persName>Matthew DeHass</persName>
@@ -518,7 +518,7 @@
 					<location>
 						<geo source="570391">37.940, 22.397</geo>
 					</location>
-					<desc>I use the general location of Mt. Cyllene for Maia's cave here: this does not mean the point on the map here represents a supposed specific location of the cave. There is indeed a &lt;a href=\"https://www.google.com/maps/place/Hermes+cave/@37.9406016,22.4057038,15z/data=!4m14!1m7!3m6!1s0x135ffacbb995e38b:0xd16be731a611e7f4!2sMount+Kyllini!8m2!3d37.9397222!4d22.3958333!16zL20vMDF6Y3Nq!3m5!1s0x135ffaaa9896ceb1:0x12b6e500fc52e854!8m2!3d37.9398273!4d22.4310894!16s%2Fg%2F11b6xh4bgy?entry=ttu\" target=\"_blank\"&gt;Hermes Cave&lt;/a&gt; marked as a tourist spot on this mountain. There is no evidence this was associated with Hermes specifically: some inscriptions were discovered and dated to as early as the 7th-6th c. BCE, but the actual text was not transcribed. Pottery sherds were also discovered, but the finds seem to have been lost. As a cave visited in ancient times, it is a worthy location, but I will only leave it as a possibility here.&lt;br/&gt;HILLER. VON GAERTRJNGEN, P, &amp; LATTERMANN, H. (ign): Arkadische Forschungen. - Abhandlungen d. Akad., lo- ii. Berlin. Accessed 11 December, 2023. https://tpsalomonreinach.mom.fr/Reinach/MOM_TP_071818/MOM_TP_071818_0006/PDF/MOM_TP_071818_0006.pdf.&lt;br/&gt;Kusch, H.: \"Die „Hermes-Höhle\" auf dem Ziria-Massiv, ein korinthisch-hellenistischer Kultplatz (Peloponnes, Griechenland)\", 20 &lt;i&gt;Die Höhle&lt;/i&gt;, 51, 52–63, 2000. Accessed 11 December, 2023. https://www.zobodat.at/pdf/Hoehle_051_0052-0063.pdf.</desc>					<!-- Line 4-end of 69 (also, decided to do away with the xpointer scheme for now)-->
+					<desc>I use the general location of Mt. Cyllene for Maia's cave here: this does not mean the point on the map here represents a supposed specific location of the cave. There is indeed a &lt;a href=\"https://www.google.com/maps/place/Hermes+cave/@37.9406016,22.4057038,15z/data=!4m14!1m7!3m6!1s0x135ffacbb995e38b:0xd16be731a611e7f4!2sMount+Kyllini!8m2!3d37.9397222!4d22.3958333!16zL20vMDF6Y3Nq!3m5!1s0x135ffaaa9896ceb1:0x12b6e500fc52e854!8m2!3d37.9398273!4d22.4310894!16s%2Fg%2F11b6xh4bgy?entry=ttu\" target=\"_blank\"&gt;Hermes Cave&lt;/a&gt; marked as a tourist spot on this mountain. There is no evidence this was associated with Hermes specifically: some inscriptions were discovered and dated to as early as the 7th-6th c. BCE, but the actual text was not transcribed. Pottery sherds were also discovered, but the finds seem to have been lost. As a cave visited in ancient times, it is a worthy location, but I will only leave it as a possibility here.&lt;br/&gt;HILLER. VON GAERTRJNGEN, P, &amp; LATTERMANN, H. (ign): Arkadische Forschungen. - Abhandlungen d. Akad., Berlin, 1911. Accessed 11 December, 2023. https://tpsalomonreinach.mom.fr/Reinach/MOM_TP_071818/MOM_TP_071818_0006/PDF/MOM_TP_071818_0006.pdf.&lt;br/&gt;Kusch, H.: \"Die „Hermes-Höhle\" auf dem Ziria-Massiv, ein korinthisch-hellenistischer Kultplatz (Peloponnes, Griechenland)\", 20 &lt;i&gt;Die Höhle&lt;/i&gt;, 51, 52–63, 2000. Accessed 11 December, 2023. https://www.zobodat.at/pdf/Hoehle_051_0052-0063.pdf.</desc>					<!-- Line 4-end of 69 (also, decided to do away with the xpointer scheme for now)-->
 					<linkGrp n="2" corresp="./Perseus-DL/tlg0013/tlg004/tlg0013.tlg004.perseus-grc2.xml">
 						<ptr xml:lang="grc" type="start-before" target="5"/>
 						<!-- worry about the namespaces later-->
@@ -766,7 +766,7 @@
 					</linkGrp>
 				</place>
 				<place>
-					<placeName type="primary">Ocalea</placeName>
+					<placeName type="primary">Okaleia</placeName>
 					<placeName type="short">ocal</placeName>
 					<location>
 						<geo source="540978"></geo>
@@ -810,7 +810,7 @@
 				<place>
 					<placeName type="primary">Krisa</placeName>
 					<placeName type="short">krisa</placeName>
-					<desc>I use only Krisa here and not a separate location for Delphi, since it is notvery present in the hymn.</desc>
+					<desc>I use only Krisa here and not a separate location for Delphi, since it is barely present in the hymn.</desc>
 					<location>
 						<geo source="540889"></geo>
 					</location>
