@@ -258,7 +258,7 @@
 			
 			<div type="map">
 				<p>
-				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description (see the list at the top of the page for which locations have a description). Click off to the side on the map or on the 'x' to make the description go away.<b>If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b>
+				See all the mapped locations in the passage below. <i>You may have to zoom out or in a little.</i> Click on a location for information about the source or, for some locations, a description (see the list at the top of the page for which locations have a description). Click off to the side on the map or on the 'x' to make the description go away.<b> If the coordinate data is supposed to exist but cannot be located, the location defaults to Delos.</b>
 				</p>
 				<xsl:choose>
 					<xsl:when test="boolean($linkgrp/../tei:location)">
